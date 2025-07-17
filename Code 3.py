@@ -19,6 +19,8 @@ def showWalmartImage():
     image_label.config(image=photo)
     image_label.image = photo
 
+#The game is not finished sorry ):
+
 print('Hello there :D')
 print('welcome to THE ABYSS\n')
 
