@@ -136,9 +136,13 @@ choose3_1=0
 if(choose3==1):
     print("You go to the crossed out area and it is a lake.\nIt seems you don't have a boat so you look around.")
     if(choose1==1):
-        print(' But you hear something "Hey you there, come on over here! It is me Eveline", says the old lady from before. You tell her that you do not have a boat and\nshe says."Well i have blueprints to make a boat" says Eveline so you take the blueprints and goto make the boat.')
+        print('But you hear something "Hey you there, come on over here! It is me Eveline", says the old lady from before. You tell her that you do not have a boat and\nshe says. "Well i have blueprints to make a boat" says Eveline so you take the blueprints and goto make the boat.')
     if(choose1==2):
-        print('...')
+        print('.')
+        time.sleep(3)
+        print('.')
+        time.sleep(3)
+        print('.')
         time.sleep(3)
         print('But you see nothing so you walk away.')
     flag1=True
@@ -204,7 +208,7 @@ if(choose3==3 or choose3_1==2):
     print('the cave blew up, KILLING YOU INSTANTLY. the bad ending')
     sys.exit()
 time.sleep(3)
-print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp.You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with themiddle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN"   and he JUMPS AT YOU')
+print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp. You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with the middle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN" and he jumps at you')
 HealthBarCaterpillar = 1
 CaterpillarStatus=True
 while(True):
@@ -286,3 +290,4 @@ if(choose4==2):
     else:
         print("You go to the lake and you put the boat on the water.")
 print("And start rowing the boat")
+print("")

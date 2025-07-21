@@ -1,0 +1,10 @@
+
+Input_Number = input("Put in your number here\n")
+
+Covert_Number = int(Input_Number)
+
+New_Number = Covert_Number * Covert_Number
+
+print(New_Number)
+
+
