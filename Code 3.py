@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 import time
 from playsound import playsound
 def showImage():
-    img = Image.open('pixil-frame-0 (2).png')
+    img = Image.open('pixil-frame-0 (3).png')
     img = img.resize((800,700))
     photo = ImageTk.PhotoImage(img)
 
