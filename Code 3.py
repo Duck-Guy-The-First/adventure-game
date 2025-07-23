@@ -131,7 +131,6 @@ if(map==1):
 
     choose3=int(input('WHERE DO THY GO\n[1] Go to the crossed out area\n[2] Go back to the dirt road\n[3] Go to the cave\n'))
 flag1=False
-choose4=0
 choose3_1=0
 if(choose3==1):
     print("You go to the crossed out area and it is a lake.\nIt seems you don't have a boat so you look around.")
@@ -290,4 +289,22 @@ if(choose4==2):
     else:
         print("You go to the lake and you put the boat on the water.")
 print("And start rowing the boat")
-print("")
+print("You see an island so you go over to it. You get out of the boat and see a prison so you walk in and see a cop sleeping, a goblin, a toothbrush, a Walmart Shopping Bag and a... thing in jail, a locked door and a code locked door")
+flag2=False
+while(True):    
+    choose5=int(input("WHAT DO THY CHOOSE\n[1] Check the cop\n[2] Check the locked door\n[3] Check the coded locked door\n[4] Talk to the goblin\n[5] Talk to the toothbrush\n[6] Talk to the walmart shopping bag\n[7] talk to the thing"))
+    if(choose5==1):
+        print("You check the cop to see if he has the key. You check his pockets and nothing. You check his hat and you see the key is glued to his head why?...\nBecause the key is glued you  can't get it")
+    if(choose5==2):
+        if(flag2==True):
+            if(CaterpillarStatus==True):
+                print("You unlock the door but you sill can't unlock your way out of hell because you KILLED THE CATERPILLER.")
+            else:
+                print("You unlock the door.")
+        print("You look at the locked door. But you don't have a key so you can't Ǵ̷̴̶̶̷̢̤̘̬͖̹͔̲̭͔̤͖̝̫̉ͭ̓̀́́̓̈̇͂͌̉̀̐ͯ͒̎ͭ̕͡E͚͔͍̚͝Ṫ̨̧̠̙̱͙̝̲̬̠̘̩̩͍̱̹̾̈̾̊̓̈́ͯ̈̑̌ͣ̈́ͩ̈̊̀̀ͬ̋̕͘͢͞ O̷̴̡͖̰͈̻̳̩ͮͩ̀ͤ̾͊͊̈͆̓̏̓̚U̶̲̘̩̱̙̻͔̪̻ͯ̊͆ͦͭ̑̽́̔͛͟͜_ͦ_̶̙͇͖̮̟̔̿͂͛͌͊̕͠T̷͚̱̮͇̩̮̟̤͔͕̩̤͙̳̯̥̦̙ͬͮͧ̀͋ͣͪ̐͗͊̃ͥ͆̄͐ͩ̆͜͠͠͡ͅͅͅ_͙ͫ͘ ")
+    if(choose5==3):
+        code1=int(input("You look at the screen and think if what the code is\nWHAT IS THE CODE\n"))
+        if(code1==5927):
+            flag2=True
+            print("The key is in the room so you get the key")
+    print("")
