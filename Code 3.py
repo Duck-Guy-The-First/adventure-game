@@ -312,5 +312,5 @@ while(True):
     if(choose5==5):
         print('You walk up to the toothbrush"You see that cop? hes been sleeping for 9 days i do not know how?"')
     if(choose5==6):
-        print('You walk up to the glitchy thing"Hi i need to say a number for you to win the game uhhhhhh\n2"')
+        print('You walk up to the glitchy thing "Hi i need to say a number for you to play the game uhhhhhh\n2"')
         
