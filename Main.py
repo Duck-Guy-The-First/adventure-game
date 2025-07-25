@@ -1,3 +1,4 @@
+from Shop import shop
 import random
 import sys
 import tkinter as tk
@@ -289,24 +290,27 @@ if(choose4==2):
     else:
         print("You go to the lake and you put the boat on the water.")
 print("And start rowing the boat")
-print("You see an island so you go over to it. You get out of the boat and see a prison so you walk in and see a cop sleeping, a goblin, a toothbrush, a Walmart Shopping Bag and a... thing in jail, a locked door and a code locked door")
-flag2=False
+print("You see an island so you go over to it. You get out of the boat and see a prison so you walk in and see a cop sleeping, a goblin, a toothbrush, and a... thing? in jail, a locked door and a code locked door")
+get_key=False
 while(True):    
-    choose5=int(input("WHAT DO THY CHOOSE\n[1] Check the cop\n[2] Check the locked door\n[3] Check the coded locked door\n[4] Talk to the goblin\n[5] Talk to the toothbrush\n[6] talk to the thing"))
+    choose5=int(input("WHAT DO THY CHOOSE\n[1] Check the cop\n[2] Check the locked door\n[3] Check the coded locked door\n[4] Talk to the goblin\n[5] Talk to the toothbrush\n[6] talk to the thing\n"))
     if(choose5==1):
         print("You check the cop to see if he has the key. You check his pockets and nothing. You check his hat and you see the key is glued to his head why?...\nBecause the key is glued you  can't get it")
     if(choose5==2):
-        if(flag2==True):
-            if(CaterpillarStatus==True):
+        if(get_key==True):
+            if(CaterpillarStatus==False):
                 print("You unlock the door but you sill can't unlock your way out of the underworld because you KILLED THE CATERPILLER.")
             else:
                 print("You unlock the door.")
+            break
         print("You look at the locked door. But you don't have a key so you can't Ǵ̷̴̶̶̷̢̤̘̬͖̹͔̲̭͔̤͖̝̫̉ͭ̓̀́́̓̈̇͂͌̉̀̐ͯ͒̎ͭ̕͡E͚͔͍̚͝Ṫ̨̧̠̙̱͙̝̲̬̠̘̩̩͍̱̹̾̈̾̊̓̈́ͯ̈̑̌ͣ̈́ͩ̈̊̀̀ͬ̋̕͘͢͞ O̷̴̡͖̰͈̻̳̩ͮͩ̀ͤ̾͊͊̈͆̓̏̓̚U̶̲̘̩̱̙̻͔̪̻ͯ̊͆ͦͭ̑̽́̔͛͟͜_ͦ_̶̙͇͖̮̟̔̿͂͛͌͊̕͠T̷͚̱̮͇̩̮̟̤͔͕̩̤͙̳̯̥̦̙ͬͮͧ̀͋ͣͪ̐͗͊̃ͥ͆̄͐ͩ̆͜͠͠͡ͅͅͅ_͙ͫ͘ ")
     if(choose5==3):
         code1=int(input("You look at the screen and think if what the code is\nWHAT IS THE CODE\n"))
         if(code1==592):
-            flag2=True
+            get_key=True
             print("The key is in the room so you get the key")
+        else:
+            print("You got it wrong")
     if(choose5==4):
         print('You walk up to the green tooth goblin "I have been here for 5 months. I had a friend named Goblin he is cool another named Goblin.\nHe is not cool and a another named Bob we do not talk about Bob."')
     if(choose5==5):
