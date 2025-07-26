@@ -57,6 +57,7 @@ charmList = {
     5:"A Baby's Toy",
     #1:"", leave the key for the code
 }
+coin = 7
 rep = 2
 HealthBarP = 100
 print('your profile is\n')
@@ -66,6 +67,7 @@ print('Weapon: ', weaponList[weapon])
 print('Charm: ', charmList[charm])
 print('Health Bar: ',HealthBarP)
 print('Reputation: ',rep)
+print("Coins: ",coin)
 time.sleep(2)
 if(raceList[race]=="Walmart Shopping Bag"):
     root = tk.Tk()
@@ -158,6 +160,8 @@ if(choose3==2 or choose3_1==1):
         
         elif HealthBarTutorial <= 0:
             print("The monster has 4 HP. You get ready for the last attack until...\nHe runs away")
+            coin=coin+4
+            print("\nYou got 4 coins")
             break
         print("You have",HealthBarP,"HP")
         fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n[3] Run away\n"))
@@ -219,6 +223,8 @@ while(True):
     elif HealthBarCaterpillar <= 0:
         print("You kill the caterpillar what is wrong with you?")
         CaterpillarStatus=False
+        coin=coin+11
+        print("Sadly you got 11 coins... I hate you")
         break
     print("don't kill him if you're not terrible")
     print("You have",HealthBarP,"HP")
@@ -312,9 +318,15 @@ while(True):
         else:
             print("You got it wrong")
     if(choose5==4):
-        print('You walk up to the green tooth goblin "I have been here for 5 months. I had a friend named Goblin he is cool another named Goblin.\nHe is not cool and a another named Bob we do not talk about Bob."')
+        if(CaterpillarStatus==False):
+            print('You walk up to the green tooth goblin "I have been here for 5 months. I had a friend named Goblin he is cool another named Goblin.\nHe is not cool and a another named Bob we do not talk about Bob now go away you moster."')
+        else:
+            print('You walk up to the green tooth goblin "I have been here for 5 months. I had a friend named Goblin he is cool another named Goblin.\nHe is not cool and a another named Bob we do not talk about Bob."')
     if(choose5==5):
-        print('You walk up to the toothbrush"You see that cop? hes been sleeping for 9 days i do not know how?"')
+        if(CaterpillarStatus==False):
+            print('You walk up to the toothbrush "Can you please get out of here that cop hes been sleeping for 9 days and i do not want to wake up.\nI do not want to be trapped here with you"')
+        
+            print('You walk up to the toothbrush "You see that cop? hes been sleeping for 9 days i do not know how?"')
     if(choose5==6):
         print('You walk up to the glitchy thing "Hi i need to say a number for you to play the game uhhhhhh\n2"')
         
