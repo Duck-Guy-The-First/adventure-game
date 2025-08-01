@@ -1,4 +1,3 @@
-
 def shop(coin,inventory):
     print("HELLO")
     while(True):
@@ -28,16 +27,19 @@ def shop(coin,inventory):
                 if(BuyOption=="2" and coin>=8):
                     print("You got the broken chat filter")
                     coin-=8
+                    inventory["Broken Chat Filter"] += 1
                 else:
                     print("IT SEEMS THAT YOU DON'T A ENOUGH FOR THE BROKEN CHAT FILTER")
                 if(BuyOption=="3" and coin>=15):
                     print("You got a killing potion")
                     coin-=15
+                    inventory["Killing Potion"] += 1
                 else:
                     print("IT SEEMS THAT YOU DON'T A ENOUGH FOR A KILLING POTION")
                 if(BuyOption=="4" and coin>=1000):
                     coin-=1000
                     print("HOW DID THY BUY THE WALMART SHOPING BAG?")
+                    inventory["Killing Potion"] += 1
                 else:
                     print("IT'S THE MOST EXPENSIVE ITEM WHY DO YOU THING YOU CAN'T BUY IT")
                 if(BuyOption=="B"):
