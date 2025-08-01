@@ -18,31 +18,32 @@ def shop(coin,inventory):
             while(True):
                 print("Coins: ",coin)
                 BuyOption=input("DO THY WANT [1] HEALTH POTION - 6 coins\nOR DO THY WANT MY [2] Broken chat filter - 8 coins\n OR DO THY WANT MY [3] KILLING POTION - 15 coins\nOR DO THY WANT MY [4] Walmart Shopping Bag - 1000 coins\n[B] Go back\n")
-                if(BuyOption=="1" and coin>=6):
-                    print("You got a health potion")
-                    coin-=6
-                    inventory["Health Potion"] += 1
-                else:
-                    print("IT SEEMS THAT THY DON'T A ENOUGH FOR A HEALTH POTION")
-                if(BuyOption=="2" and coin>=8):
+                if(BuyOption=="1"):
+                    if(coin>=6):
+                        print("You got a health potion")
+                        coin-=6
+                        inventory["Health Potion"] += 1
+                    else:
+                        print("IT SEEMS THAT THY DON'T A ENOUGH FOR A HEALTH POTION")
+                elif(BuyOption=="2" and coin>=8):
                     print("You got the broken chat filter")
                     coin-=8
                     inventory["Broken Chat Filter"] += 1
                 else:
                     print("IT SEEMS THAT YOU DON'T A ENOUGH FOR THE BROKEN CHAT FILTER")
-                if(BuyOption=="3" and coin>=15):
+                elif(BuyOption=="3" and coin>=15):
                     print("You got a killing potion")
                     coin-=15
                     inventory["Killing Potion"] += 1
                 else:
                     print("IT SEEMS THAT YOU DON'T A ENOUGH FOR A KILLING POTION")
-                if(BuyOption=="4" and coin>=1000):
+                elif(BuyOption=="4" and coin>=1000):
                     coin-=1000
                     print("HOW DID THY BUY THE WALMART SHOPING BAG?")
                     inventory["Killing Potion"] += 1
                 else:
                     print("IT'S THE MOST EXPENSIVE ITEM WHY DO YOU THING YOU CAN'T BUY IT")
-                if(BuyOption=="B"):
+                elif(BuyOption=="B"):
                     break
         elif(ChooseShop==3):
             break
