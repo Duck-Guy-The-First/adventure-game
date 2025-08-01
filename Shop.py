@@ -1,3 +1,4 @@
+
 def shop(coin,inventory):
     print("HELLO")
     while(True):
@@ -21,6 +22,7 @@ def shop(coin,inventory):
                 if(BuyOption=="1" and coin>=6):
                     print("You got a health potion")
                     coin-=6
+                    inventory["Health Potion"] += 1
                 else:
                     print("IT SEEMS THAT THY DON'T A ENOUGH FOR A HEALTH POTION")
                 if(BuyOption=="2" and coin>=8):
@@ -42,4 +44,15 @@ def shop(coin,inventory):
                     break
         elif(ChooseShop==3):
             break
-shop(coin=25,inventory=25)
+        
+        return coin, inventory
+
+inventory = {
+    "Health Potion":0,
+    "Broken Chat Filter":0,
+    "Killing Potion":0,
+    "Walmart Shopping Bag":0
+}
+
+coin = 25
+coin, inventory = shop(coin,inventory)
