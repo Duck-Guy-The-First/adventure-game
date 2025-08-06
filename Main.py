@@ -25,8 +25,6 @@ def showWalmartImage():
 print('Hello there :D')
 print('welcome to THE ABYSS\n')
 
-
-
 race=int(input('WHAT ARE THY?\n[1] Human \n[2] Goblin\n[3] Elf\n[4] Monster\n[6] Attack Helicopter\n'))
 
 name = input("Enter your name: ")
@@ -34,6 +32,8 @@ name = input("Enter your name: ")
 weapon=int(input('WHAT WEAPON DO THY CHOOSE?\n[1] Sword \n[2] Shield\n[3] Mace\n[5] A Bow And Arrow \n'))
 
 charm=int(input("WHAT CHARM DO THY CHOOSE?\n[2] Crucifix \n[3] Amulet\n[4] A Weird Bottle\n[5] A Baby's Toy \n"))
+
+drink=int(input("WHAT IS THY FAVORITE DRINK\n[1] Soda\n[2] Rat Water\n[3] Food\n[5] Snow White And The Seven Dwarfs Live Acion Tralier\n"))
 #add villain mode
 raceList = {
     1:"Human",
@@ -57,7 +57,20 @@ charmList = {
     5:"A Baby's Toy",
     #1:"", leave the key for the code
 }
+drinkList ={
+    1:"Soda",
+    2:"Rat Water",
+    3:"Food",
+    4:"Oil The Milky Edition",
+    5:"Snow White And The Seven Dwarfs Live Acion Tralier",
+}
 coin = 7
+inventory = {
+    "Health Potion":0,
+    "Broken Chat Filter":0,
+    "Killing Potion":0,
+    "Walmart Shopping Bag":0
+}
 rep = 2
 HealthBarP = 100
 print('your profile is\n')
@@ -65,6 +78,7 @@ print("Name:" ,name)
 print('Race: ', raceList[race])
 print('Weapon: ', weaponList[weapon])
 print('Charm: ', charmList[charm])
+print("Favorite Drink: ",drinkList[drink])
 print('Health Bar: ',HealthBarP)
 print('Reputation: ',rep)
 print("Coins: ",coin)
@@ -211,6 +225,10 @@ if(choose3==3 or choose3_1==2):
     print("BOOM!")
     print('the cave blew up, KILLING YOU INSTANTLY. the bad ending')
     sys.exit()
+if(choose3==4 or choose3_1==3):
+    print("You walk into the bushes when you see...")
+    
+    shop
 time.sleep(3)
 print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp. You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with the middle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN" and he jumps at you')
 HealthBarCaterpillar = 1
@@ -351,4 +369,18 @@ while(True):
             print('You walk up to the glitchy thing "Hi i need to say a number for you to play the game uhhhhhh\n2"')
     if(choose5_1==4):
         print("You check the wanted poster it says wanted for killing a caterpiller.\nI can't kill you but i hope other people will.")
-    time.sleep(2)
+print("You walk out of the prison but you look at the key. and then look at the others.")
+choose6=int(input("WHAT DO THY CHOOSE\n[1] Free the others\n[2] Get out"))
+if(choose6==1):
+    if(CaterpillarStatus==False):
+        print("You free the them...\nYou can help them but you killed the caterpiller.\nYour reputation increases by 3")
+    else:
+        print("You free the them.\nYour reputation increases by 2")
+    rep=+2
+if(choose6==2):
+    if(CaterpillarStatus==False):
+        print("You run out of the prison\nYou have no soul\ndecreases buy 1")
+    else:
+        print("You run out of the prison\ndecreases buy 1")
+    rep=-1
+
