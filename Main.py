@@ -148,6 +148,9 @@ if(map==1):
     choose3=int(input('WHERE DO THY GO\n[1] Go to the crossed out area\n[2] Go back to the dirt road\n[3] Go to the cave\n[4] Go North West\n'))
 flag1=False
 choose3_1=0
+
+# TO DO: FIX WHILE LOOP FOR THE SHOP DUH
+
 if(choose3==1):
     print("You go to the crossed out area and it is a lake.\nIt seems you don't have a boat so you look around.")
     if(choose1==1):

@@ -57,6 +57,6 @@ def shop(coin,inventory):
             break
         else:
             print("That does not exist mortal")
-        return coin, inventory
+    return coin, inventory
 
 #coin, inventory = shop(coin,inventory)
