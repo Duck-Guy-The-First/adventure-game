@@ -4,10 +4,9 @@ import sys
 import tkinter as tk
 from PIL import Image, ImageTk
 import time
-from playsound import playsound
 def showImage():
     img = Image.open('Map-1.png')
-    img = img.resize((800,700))
+    img = img.resize((250,130))
     photo = ImageTk.PhotoImage(img)
 
     image_label.config(image=photo)
@@ -146,7 +145,7 @@ if(map==1):
 
     root.mainloop()
 
-    choose3=int(input('WHERE DO THY GO\n[1] Go to the crossed out area\n[2] Go back to the dirt road\n[3] Go to the cave\n'))
+    choose3=int(input('WHERE DO THY GO\n[1] Go to the crossed out area\n[2] Go back to the dirt road\n[3] Go to the cave\n[4] Go North West\n'))
 flag1=False
 choose3_1=0
 if(choose3==1):
@@ -162,7 +161,7 @@ if(choose3==1):
         time.sleep(3)
         print('But you see nothing so you walk away.')
     flag1=True
-    choose3_1=int(input("WHERE DO THY GO? part 2\n[1] Go back to the dirt road\n[2] Go to the cave\n"))
+    choose3_1=int(input("WHERE DO THY GO? part 2\n[1] Go back to the dirt road\n[2] Go to the cave\n[3] Go North West\n"))
 if(choose3==2 or choose3_1==1):
     print("you walk to the dirt road you are almost at the dirt road when you see a MONSTER")
     HealthBarTutorial = 25
@@ -227,8 +226,7 @@ if(choose3==3 or choose3_1==2):
     sys.exit()
 if(choose3==4 or choose3_1==3):
     print("You walk into the bushes when you see...")
-    
-    shop
+    coin, inventory = shop(coin,inventory)
 time.sleep(3)
 print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp. You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with the middle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN" and he jumps at you')
 HealthBarCaterpillar = 1
@@ -317,6 +315,7 @@ print("And start rowing the boat")
 choose5=0
 choose5_1=0
 get_key=False
+flag2=False
 if(CaterpillarStatus==False):
     print("You see an island so you go over to it. You get out of the boat and see a prison so you walk in and see a cop sleeping, a goblin, a toothbrush, and a... thing? in jail. you also see a locked door, a coded locked door and your face on a wanted poster.")
 else:
@@ -337,21 +336,35 @@ while(True):
             break
         print("You look at the locked door. But you don't have a key so you can't Ǵ̷̴̶̶̷̢̤̘̬͖̹͔̲̭͔̤͖̝̫̉ͭ̓̀́́̓̈̇͂͌̉̀̐ͯ͒̎ͭ̕͡E͚͔͍̚͝Ṫ̨̧̠̙̱͙̝̲̬̠̘̩̩͍̱̹̾̈̾̊̓̈́ͯ̈̑̌ͣ̈́ͩ̈̊̀̀ͬ̋̕͘͢͞ O̷̴̡͖̰͈̻̳̩ͮͩ̀ͤ̾͊͊̈͆̓̏̓̚U̶̲̘̩̱̙̻͔̪̻ͯ̊͆ͦͭ̑̽́̔͛͟͜_ͦ_̶̙͇͖̮̟̔̿͂͛͌͊̕͠T̷͚̱̮͇̩̮̟̤͔͕̩̤͙̳̯̥̦̙ͬͮͧ̀͋ͣͪ̐͗͊̃ͥ͆̄͐ͩ̆͜͠͠͡ͅͅͅ_͙ͫ͘ ")
     if(choose5==3 or choose5_1==3):
-        while(True):
-            code1=input("You look at the screen and think of what the code is\nWHAT IS THE CODE\n\nPress B to go back\n")
-            if(code1=="B"):
-                break
-            elif(code1=="592"):
-                print("You unlock the door and see a closet")
-                OpenSeasame=int(input("WHAT DO THY CHOOSE\n[1] Open the closet\n[2] Go back"))
-                if(OpenSeasame==1):
-                    get_key=True
-                    print("You open the closet and see a key. Key has added to your inventory")
-                    break
-                if(OpenSeasame==2):
-                    break
+        if(flag2==True):
+            if(get_key==True):
+                print("it's a empty")
+                time.sleep(2)
             else:
-                print("You got it wrong")
+                while(True):
+                    OpenSeasame=int(input("WHAT DO THY CHOOSE\n[1] Open the closet\n[2] Go back\n"))
+                    if(OpenSeasame==1):
+                        get_key=True
+                        print("You open the closet and see a key. Key has added to your inventory")
+                        break
+                    if(OpenSeasame==2):
+                        break
+        elif(flag2==False):
+            print("You look at the screen and think of what the code is")
+            while(True):
+                code1=input("WHAT IS THE CODE\n\nPress B to go back\n")
+                if(code1=="B"):
+                    break
+                elif(code1=="592"):
+                    flag2=True
+                    print("You unlock the door and see a closet")
+                    OpenSeasame=int(input("WHAT DO THY CHOOSE\n[1] Open the closet\n[2] Go back"))
+                    if(OpenSeasame==1):
+                        get_key=True
+                        print("You open the closet and see a key. Key has added to your inventory")
+                        break
+                    if(OpenSeasame==2):
+                        break
     if(choose5==4 or choose5_1==5):
         if(CaterpillarStatus==False):
             print('You walk up to the green tooth goblin "I have been here for 5 months. I had a friend named Goblin he is cool another named Goblin.\nHe is not cool and a another named Bob we do not talk about Bob now go away you moster."')
@@ -373,14 +386,13 @@ print("You walk out of the prison but you look at the key. and then look at the 
 choose6=int(input("WHAT DO THY CHOOSE\n[1] Free the others\n[2] Get out"))
 if(choose6==1):
     if(CaterpillarStatus==False):
-        print("You free the them...\nYou can help them but you killed the caterpiller.\nYour reputation increases by 3")
+        print("You free the them...\nYou can help them but you killed the caterpiller.\nYour reputation increases by 1")
     else:
         print("You free the them.\nYour reputation increases by 2")
     rep=+2
 if(choose6==2):
     if(CaterpillarStatus==False):
-        print("You run out of the prison\nYou have no soul\ndecreases buy 1")
+        print("You run out of the prison\nYou have no soul\nYour reputation decreases by 1")
     else:
-        print("You run out of the prison\ndecreases buy 1")
+        print("You run out of the prison\nYour reputation decreases by 1")
     rep=-1
-
