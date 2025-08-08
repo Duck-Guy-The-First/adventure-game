@@ -116,6 +116,7 @@ elif(choose1==2):
 
 print('you walk down the dirt path when you see THE MONSTER THE OLD LADY TALKING ABOUT. You name him Merodach, you name him after your English teacher\nMerodach ATTACKS YOU, you dodge his attack.')
 choose2=int(input('WHAT DO THY CHOOSE \n[1] Attack \n[2] Run\n'))
+
 if(choose2==1):
     if(raceList[race]=="Goblin"):
         print("you hold up your fist and JUMPS THE AIR TO ATTACK MERODACH BUT he SLAPS YOU ON THE GROUND.\nOut of options, you run away, Merodach sees you running away but instead of chasing you his SMASHES YOUR HOME...")
@@ -150,86 +151,88 @@ flag1=False
 choose3_1=0
 
 # TO DO: FIX WHILE LOOP FOR THE SHOP DUH
+print("You go to the crossed out area and it is a lake.\nIt seems you don't have a boat so you look around.")
+while(True):
+    if(choose3==1):
+        if(choose1==1):
+            print('You hear something "Hey you there, come on over here! It is me Eveline", says the old lady from before. You tell her that you do not have a boat and\nshe says. "Well i have blueprints to make a boat" says Eveline so you take the blueprints and goto make the boat.')
+        if(choose1==2):
+            print('.')
+            time.sleep(3)
+            print('.')
+            time.sleep(3)
+            print('.')
+            time.sleep(3)
+            print('But you see nothing so you walk away.')
+        flag1=True
+        # choose3_1=int(input("WHERE DO THY GO? part 2\n[1] Go back to the dirt road\n[2] Go to the cave\n[3] Go North West\n"))
+        continue
+    if(choose3==2 or choose3_1==1):
+        print("you walk to the dirt road you are almost at the dirt road when you see a MONSTER")
+        HealthBarTutorial = 25
 
-if(choose3==1):
-    print("You go to the crossed out area and it is a lake.\nIt seems you don't have a boat so you look around.")
-    if(choose1==1):
-        print('But you hear something "Hey you there, come on over here! It is me Eveline", says the old lady from before. You tell her that you do not have a boat and\nshe says. "Well i have blueprints to make a boat" says Eveline so you take the blueprints and goto make the boat.')
-    if(choose1==2):
-        print('.')
-        time.sleep(3)
-        print('.')
-        time.sleep(3)
-        print('.')
-        time.sleep(3)
-        print('But you see nothing so you walk away.')
-    flag1=True
-    choose3_1=int(input("WHERE DO THY GO? part 2\n[1] Go back to the dirt road\n[2] Go to the cave\n[3] Go North West\n"))
-if(choose3==2 or choose3_1==1):
-    print("you walk to the dirt road you are almost at the dirt road when you see a MONSTER")
-    HealthBarTutorial = 25
-
-    while(True):
-        if HealthBarP <= 0:
-            print ("YOU DIED")
-            sys.exit()
-        
-        elif HealthBarTutorial <= 0:
-            print("The monster has 4 HP. You get ready for the last attack until...\nHe runs away")
-            coin=coin+4
-            print("\nYou got 4 coins")
-            break
-        print("You have",HealthBarP,"HP")
-        fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n[3] Run away\n"))
-
-        DodgeFlag=random.randint(0,10)
-        PlayerDamage=random.randint(6,12)
-        RunAwayChance=random.randint(0,10)
-
-        if(fight1==1):
-            if(DodgeFlag >= 3):
-                HealthBarTutorial=HealthBarTutorial-PlayerDamage
-                print("The monster took",PlayerDamage, "damage!")
-            else:
-                print("The monster dodges your attak.")
-        
-        elif(fight1==2):
-            print("The monster has",HealthBarTutorial,"HP. He does little damage.")
-        
-        elif(fight1==3):
-            if(RunAwayChance > 8):
-                print('You convince that there is a butterfly in the sky.\nHe looks up and you sneak past him.')
+        while(True):
+            if HealthBarP <= 0:
+                print ("YOU DIED")
+                sys.exit()
+            
+            elif HealthBarTutorial <= 0:
+                print("The monster has 4 HP. You get ready for the last attack until...\nHe runs away")
+                coin=coin+4
+                print("\nYou got 4 coins")
                 break
+            print("You have",HealthBarP,"HP")
+            fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n[3] Run away\n"))
+
+            DodgeFlag=random.randint(0,10)
+            PlayerDamage=random.randint(6,12)
+            RunAwayChance=random.randint(0,10)
+
+            if(fight1==1):
+                if(DodgeFlag >= 3):
+                    HealthBarTutorial=HealthBarTutorial-PlayerDamage
+                    print("The monster took",PlayerDamage, "damage!")
+                else:
+                    print("The monster dodges your attak.")
+            
+            elif(fight1==2):
+                print("The monster has",HealthBarTutorial,"HP. He does little damage.")
+            
+            elif(fight1==3):
+                if(RunAwayChance > 8):
+                    print('You convince that there is a butterfly in the sky.\nHe looks up and you sneak past him.')
+                    break
+                else:
+                    print("You tried to convince him that there is a butterfly in the sky.\nBut it doesn't work.")
+            
+            MonsterDamage=round(random.uniform(4,8.5),1)
+            DodgePlayerFlag=random.randint(0,10)
+            if(DodgePlayerFlag >= 2):
+                HealthBarP=HealthBarP-MonsterDamage
+                HealthBarP=round(HealthBarP,1)
+                print('You took',MonsterDamage,'damage!')
             else:
-                print("You tried to convince him that there is a butterfly in the sky.\nBut it doesn't work.")
-        
-        MonsterDamage=round(random.uniform(4,8.5),1)
-        DodgePlayerFlag=random.randint(0,10)
+                print('You dodged his attack')
+            time.sleep(1)
+        break
+    if(choose3==3 or choose3_1==2):
+        print("you walk to the cave and see a wall made out of ropes you try to untangle it... but you hear something")
+        time.sleep(10)
+        num = 10
 
-        if(DodgePlayerFlag >= 2):
-            HealthBarP=HealthBarP-MonsterDamage
-            HealthBarP=round(HealthBarP,1)
-            print('You took',MonsterDamage,'damage!')
-        else:
-            print('You dodged his attack')
-        time.sleep(1)
+        while num > 0:
+            print(num)
+            num = num - 1
+            time.sleep(1.0)
 
-if(choose3==3 or choose3_1==2):
-    print("you walk to the cave and see a wall made out of ropes you try to untangle it... but you hear something")
-    time.sleep(10)
-    num = 10
+        print("BOOM!")
+        print('the cave blew up, KILLING YOU INSTANTLY. the bad ending')
+        sys.exit()
+    if(choose3==4 or choose3_1==3):
+        print("You walk into the bushes when you see...")
+        coin, inventory = shop(coin,inventory)
 
-    while num > 0:
-        print(num)
-        num = num - 1
-        time.sleep(1.0)
 
-    print("BOOM!")
-    print('the cave blew up, KILLING YOU INSTANTLY. the bad ending')
-    sys.exit()
-if(choose3==4 or choose3_1==3):
-    print("You walk into the bushes when you see...")
-    coin, inventory = shop(coin,inventory)
 time.sleep(3)
 print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp. You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with the middle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN" and he jumps at you')
 HealthBarCaterpillar = 1
