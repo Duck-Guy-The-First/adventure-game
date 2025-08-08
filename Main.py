@@ -399,3 +399,4 @@ if(choose6==2):
     else:
         print("You run out of the prison\nYour reputation decreases by 1")
     rep=-1
+print("You see a log and decided to sit down.\nYou think about merodach and your revenge but then you see him MERODDACH")
