@@ -151,9 +151,9 @@ flag1=False
 choose3_1=0
 
 # TO DO: FIX WHILE LOOP FOR THE SHOP DUH
-print("You go to the crossed out area and it is a lake.\nIt seems you don't have a boat so you look around.")
 while(True):
     if(choose3==1):
+        print("You go to the crossed out area and it is a lake.\nIt seems you don't have a boat so you look around.")
         if(choose1==1):
             print('You hear something "Hey you there, come on over here! It is me Eveline", says the old lady from before. You tell her that you do not have a boat and\nshe says. "Well i have blueprints to make a boat" says Eveline so you take the blueprints and goto make the boat.')
         if(choose1==2):
