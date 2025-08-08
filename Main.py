@@ -153,7 +153,6 @@ choose3_1=0
 # TO DO: FIX WHILE LOOP FOR THE SHOP DUH
 while(True):
     if(choose3==1):
-        print("You go to the crossed out area and it is a lake.\nIt seems you don't have a boat so you look around.")
         if(choose1==1):
             print('You hear something "Hey you there, come on over here! It is me Eveline", says the old lady from before. You tell her that you do not have a boat and\nshe says. "Well i have blueprints to make a boat" says Eveline so you take the blueprints and goto make the boat.')
         if(choose1==2):
@@ -165,8 +164,7 @@ while(True):
             time.sleep(3)
             print('But you see nothing so you walk away.')
         flag1=True
-        # choose3_1=int(input("WHERE DO THY GO? part 2\n[1] Go back to the dirt road\n[2] Go to the cave\n[3] Go North West\n"))
-        continue
+        choose3_1=int(input("WHERE DO THY GO? part 2\n[1] Go back to the dirt road\n[2] Go to the cave\n[3] Go North West\n"))
     if(choose3==2 or choose3_1==1):
         print("you walk to the dirt road you are almost at the dirt road when you see a MONSTER")
         HealthBarTutorial = 25
@@ -231,7 +229,8 @@ while(True):
     if(choose3==4 or choose3_1==3):
         print("You walk into the bushes when you see...")
         coin, inventory = shop(coin,inventory)
-
+        choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Bushes\n"))
+        continue
 
 time.sleep(3)
 print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp. You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with the middle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN" and he jumps at you')
@@ -402,4 +401,3 @@ if(choose6==2):
     else:
         print("You run out of the prison\nYour reputation decreases by 1")
     rep=-1
-print("You see a log and decided to sit down.\nYou think about merodach and your revenge but then you see him MERODDACH")
