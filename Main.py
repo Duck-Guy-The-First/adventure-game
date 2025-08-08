@@ -116,6 +116,7 @@ elif(choose1==2):
 
 print('you walk down the dirt path when you see THE MONSTER THE OLD LADY TALKING ABOUT. You name him Merodach, you name him after your English teacher\nMerodach ATTACKS YOU, you dodge his attack.')
 choose2=int(input('WHAT DO THY CHOOSE \n[1] Attack \n[2] Run\n'))
+
 if(choose2==1):
     if(raceList[race]=="Goblin"):
         print("you hold up your fist and JUMPS THE AIR TO ATTACK MERODACH BUT he SLAPS YOU ON THE GROUND.\nOut of options, you run away, Merodach sees you running away but instead of chasing you his SMASHES YOUR HOME...")
