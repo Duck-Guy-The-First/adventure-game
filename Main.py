@@ -149,6 +149,7 @@ if(map==1):
     choose3=int(input('WHERE DO THY GO\n[1] Go to the crossed out area\n[2] Go back to the dirt road\n[3] Go to the cave\n[4] Go North West\n'))
 flag1=False
 choose3_1=0
+GoShop=False
 
 # TO DO: FIX WHILE LOOP FOR THE SHOP DUH
 while(True):
@@ -227,10 +228,15 @@ while(True):
         print('the cave blew up, KILLING YOU INSTANTLY. the bad ending')
         sys.exit()
     if(choose3==4 or choose3_1==3):
+        GoShop=True
         print("You walk into the bushes when you see...")
         coin, inventory = shop(coin,inventory)
         print("You look at the shop and see a cube you look at the shop and see it disappear\n you pick up the cube and see mini super duper tiny shop written on it")
-        choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Use the cube\n"))
+        if(flag1==True):
+            choose3_1 = int(input("WHERE DO THY GO?\n[1] Dirt Road\n[2] Cave\n[3] Use the cube\n"))
+        else:
+            choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Use the cube\n"))
+        
 
 time.sleep(3)
 print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp. You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with the middle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN" and he jumps at you')
