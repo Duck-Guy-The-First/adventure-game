@@ -229,8 +229,8 @@ while(True):
     if(choose3==4 or choose3_1==3):
         print("You walk into the bushes when you see...")
         coin, inventory = shop(coin,inventory)
-        choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Bushes\n"))
-        continue
+        print("You look at the shop and see a cube you look at the shop and see it disappear\n you pick up the cube and see mini super duper tiny shop written on it")
+        choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Use the cube\n"))
 
 time.sleep(3)
 print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp. You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with the middle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN" and he jumps at you')
@@ -401,3 +401,4 @@ if(choose6==2):
     else:
         print("You run out of the prison\nYour reputation decreases by 1")
     rep=-1
+print("You ")
