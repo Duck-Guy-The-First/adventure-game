@@ -151,7 +151,6 @@ flag1=False
 choose3_1=0
 GoShop=False
 
-# TO DO: FIX WHILE LOOP FOR THE SHOP DUH
 while(True):
     if(choose3==1):
         if(choose1==1):
@@ -407,4 +406,5 @@ if(choose6==2):
     else:
         print("You run out of the prison\nYour reputation decreases by 1")
     rep=-1
-print("You ")
+print("You see a log so you decide to take a break and sit down and think. When you see something embedded in to the ground.\nYou walk over there and see a sword in the ground you try to pull it out of the ground until you see MERODACH he sees you but instead of attacking you he pulls out the sword and give it to you\nbefore he walks away.")
+choose7=int(input("WHAT DO THY CHOOSE\n[1] Attack him\nLet him walk away"))
