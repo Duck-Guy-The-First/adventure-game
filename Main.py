@@ -119,13 +119,15 @@ choose2=int(input('WHAT DO THY CHOOSE \n[1] Attack \n[2] Run\n'))
 
 if(choose2==1):
     if(raceList[race]=="Goblin"):
-        print("you hold up your fist and JUMPS THE AIR TO ATTACK MERODACH BUT he SLAPS YOU ON THE GROUND.\nOut of options, you run away, Merodach sees you running away but instead of chasing you his SMASHES YOUR HOME...")
+        print("you hold up your fist and JUMPS THE AIR TO ATTACK MERODACH BUT he SLAPS YOU IN THE AIR MAKING YOU FLY AWAY.\nMerodach sees you flying away but instead of chasing you his SMASHES YOUR HOME...")
     else:
         print('you get your wood sword and JUMP IN THE AIR TO ATTACK MERODACH BUT he grabs your sword and BREAKS IT IN PIECES.\nOut of options, you run away, Merodach sees you running away but instead of chasing you his SMASHES YOUR HOME...')
 elif(choose2==2):
     print('You run away escaping merodach. Merodach sees you running away but instead of chasing you his SMASHES YOUR HOME')
-
-print("Your running at somewhere you don't know, you stop running and check your surroundings and find you are somewhere far away from home.\n...\n(good)\nnot knowing where to go you find a compass on a log so you use it.")
+if(raceList[race]=="Goblin"):
+    if(choose2==1):
+        print("You are in the sky until you hit the ground you start going back to fight Merodach until you find a compass and realize that you need to get stronger")
+print("Your running at somewhere you don't know, you stop running and check your surroundings and find you are somewhere far away from home.\nNot knowing where to go you find a compass on a log so you use it.")
 map=int(input('... you check the map\n[1] Do it\n'))
 if(map==1):
 
@@ -227,14 +229,18 @@ while(True):
         print('the cave blew up, KILLING YOU INSTANTLY. the bad ending')
         sys.exit()
     if(choose3==4 or choose3_1==3):
-        GoShop=True
-        print("You walk into the bushes when you see...")
-        coin, inventory = shop(coin,inventory)
-        print("You look at the shop and see a cube you look at the shop and see it disappear\n you pick up the cube and see mini super duper tiny shop written on it")
-        if(flag1==True):
-            choose3_1 = int(input("WHERE DO THY GO?\n[1] Dirt Road\n[2] Cave\n[3] Use the cube\n"))
+        if(GoShop==True):
+            print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of existence.\n01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100101 00100000 01110011 01101000 01101111 01110000\n You are in a weird forest an see the shop")
         else:
-            choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Use the cube\n"))
+            print("You walk into the bushes when you see...")
+            coin, inventory = shop(coin,inventory)
+            print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00111010 00100000 01000100 01101001 01101101 01100101 01101110 01110011 01101001 01101111 01101110 00100000 00110010 00110000 00110110 00110011\n")
+            print("You see a cube and look at the shop to see it disappear\nSuper duper mini tiny shop (aka the cube) has been added to your inventory")
+            GoShop=True
+            if(flag1==True):
+                choose3_1 = int(input("WHERE DO THY GO?\n[1] Dirt Road\n[2] Cave\n[3] Use the cube\n"))
+            else:
+                choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Use the cube\n"))
         
 
 time.sleep(3)
@@ -406,5 +412,5 @@ if(choose6==2):
     else:
         print("You run out of the prison\nYour reputation decreases by 1")
     rep=-1
-print("You see a log so you decide to take a break and sit down and think. When you see something embedded in to the ground.\nYou walk over there and see a sword in the ground you try to pull it out of the ground until you see MERODACH he sees you but instead of attacking you he pulls out the sword and give it to you\nbefore he walks away.")
-choose7=int(input("WHAT DO THY CHOOSE\n[1] Attack him\nLet him walk away"))
+print("You see a log so you decide to take a break and sit down and think. When you see something embedded in to the ground.\nYou walk over there and see a sword in the ground you try to pull it out of the ground until you see MERODACH he sees you but instead of attacking you he pulls out the sword and give it to you\nbefore he walks away to go destroy more towns.")
+choose7=int(input("WHAT DO THY CHOOSE\n[1] Attack him\n[2] Let him walk away"))

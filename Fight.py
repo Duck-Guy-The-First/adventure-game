@@ -1,52 +1,55 @@
 import random
 import sys
-
-def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, CoolGuydmg1, CoolGuydmg2, CheckDMG, Inventory RunAwayMessageFail, RunAwayMessagePass, coin):
-    MonsterLifeStatus = True #True #= #ALIVE #:O
+import time
+def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydmg2, Coolydodges1, Coolydodges2, DodgeFlag1, DodgeFlag2, pabol_and_bob, CheckDMG, inventory, RunAwayMessageFail, RunAway1, RunNum, RunAway2, RunAwayMessagePass):
+    opLifeStatus = True #True #= #ALIVE #:O
     while(True):
         if CoolGuyhp <= 0:
             print ("YOU DIED")
             sys.exit()
             
         elif opHP <= 0:
-            print("The monster has 4 HP. You get ready for the last attack until...\nHe runs away")
-            coin=coin+4
-            print("\nYou got 4 coins")
             break
-        print("You have",HealthBarP,"HP")
+        print("You have",CoolGuyhp,"HP")
         fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n[3] Run away\n"))
 
-        DodgeFlag=random.randint(0,10)
-        PlayerDamage=random.randint(6,12)
-        RunAwayChance=random.randint(0,10)
+        DodgeFlag=random.randint(DodgeFlag1,DodgeFlag2)
+        CoolGuydamage=random.randint(CoolGuydmg1,CoolGuydmg2)
+        RunAwayChance=random.randint(RunAway1,RunAway2)
 
         if(fight1==1):
-            if(DodgeFlag >= 3):
-                HealthBarTutorial=HealthBarTutorial-PlayerDamage
-                print("The monster took",PlayerDamage, "damage!")
+            if(DodgeFlag >= opNum):
+                opHP-=CoolGuydamage
+                print("The ",opName," took",CoolGuydamage, "damage!")
             else:
-                print("The monster dodges your attak.")
+                print("The",opName,"dodges your attak.")
         
         elif(fight1==2):
-            print("The monster has",HealthBarTutorial,"HP. He does little damage.")
+            print("The ",opName,"has",opHP,"HP. He does little damage.")
         
         elif(fight1==3):
-            if(RunAwayChance > 8):
-                print('You convince that there is a butterfly in the sky.\nHe looks up and you sneak past him.')
+            if(RunAwayChance > RunNum):                                                        
+                print(RunAwayMessagePass)
                 break
             else:
-                print("You tried to convince him that there is a butterfly in the sky.\nBut it doesn't work.")
+                print(RunAwayMessageFail)
         
-        MonsterDamage=round(random.uniform(4,8.5),1)
-        DodgePlayerFlag=random.randint(0,10)
-        if(DodgePlayerFlag >= 2):
-            HealthBarP=HealthBarP-MonsterDamage
-            HealthBarP=round(HealthBarP,1)
-            print('You took',MonsterDamage,'damage!')
+        opDamage=random.uniform(opDMG1,opDMG2)
+        dodgeCoolGuyflag=random.randint(Coolydodges1,Coolydodges2)
+        if(dodgeCoolGuyflag >= 2):
+            CoolGuyhp-=opDamage
+            print('You took',opDamage,'damage!')
         else:
             print('You dodged his attack')
         time.sleep(1)
-    break
-    coin = 0
+        break
     CoolGuyhp+=3
-    return MonsterLifeStatus, Inventory, coin, CoolGuyhp
+    return opLifeStatus, inventory, CoolGuyhp
+inventory = {
+    "Health Potion":0,
+    "Broken Chat Filter":0,
+    "Killing Potion":0,
+    "Walmart Shopping Bag":0
+}
+fight(100, "Monster", 34, 4, 10, 5, 13, 0, 10, 0, 10, "P&B", "He does little damage.", inventory , "You cooly dance so you can get past him...\n sadly he does not like dancing and gets mad. his damage increases by 0", 8, 8, 10,  "You see a butterfly in the sky and tell him.\nHe looks up and you see the oportunity to run away\nYou sneak past him.")
+fight(100, "Caterpiller", 1, 1, 4, 1, 1000000, 1000000, 9, 10, 0, 10, "P&B", "He does little damage.", inventory, "You say that his wife and kids are dead.\nBut he dosn't believe you because they don't exist.", 9, 9, 10, "You put him on an other tree... You walk away as he screams at you still mad.")

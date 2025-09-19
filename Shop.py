@@ -22,14 +22,14 @@ def shop(coin,inventory):
                 BuyOption=input("DO THY WANT [1] HEALTH POTION - 6 coins\nOR DO THY WANT MY [2] Broken chat filter - 8 coins\n OR DO THY WANT MY [3] KILLING POTION - 14 coins\nOR DO THY WANT MY [4] Walmart Shopping Bag - 1000 coins\n[B] Go back\n")
                 if(BuyOption=="1"):
                     if(coin>=6):
-                        print("You got a health potion")
+                        print("Health potion has been added to your inventory")
                         coin-=6
                         inventory["Health Potion"] += 1
                     else:
                         print("IT SEEMS THAT THY DON'T A ENOUGH FOR A HEALTH POTION")
                 elif(BuyOption=="2"):
                     if(coin>=8):
-                        print("You got the broken chat filter")
+                        print("Broken chat filter has been added to your inventory")
                         coin-=8
                         inventory["Broken Chat Filter"] += 1
                     else:
@@ -37,7 +37,7 @@ def shop(coin,inventory):
                 elif(BuyOption=="3"):
                     if(coin>=14):
                         if(coin>=6):
-                            print("You got a killing potion")
+                            print("Killing potion has been added to your inventory")
                             coin-=14
                             inventory["Killing Potion"] += 1
                     else:
@@ -48,7 +48,7 @@ def shop(coin,inventory):
                         print("HOW DID THY BUY THE WALMART SHOPING BAG?")
                         inventory["Killing Potion"] += 1
                     else:
-                        print("IT'S THE MOST EXPENSIVE ITEM WHY DO YOU THING YOU CAN'T BUY IT")
+                        print("IT'S THE MOST EXPENSIVE ITEM WHY DO YOU THINK YOU CAN'T BUY IT")
                 elif(BuyOption=="B"):
                     break
                 else:
