@@ -11,7 +11,7 @@ def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydm
         elif opHP <= 0:
             break
         print("You have",CoolGuyhp,"HP")
-        fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n"))
+        fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n[3] Inventory"))
 
         DodgeFlag=random.randint(DodgeFlag1,DodgeFlag2)
         CoolGuydamage=random.randint(CoolGuydmg1,CoolGuydmg2)
@@ -25,6 +25,9 @@ def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydm
         
         elif(fight1==2):
             print("The ",opName,"has",opHP,"HP. He does little damage.")
+
+        elif(fight1==3):
+            print("Your i")
         
         opDamage=random.randint(opDMG1,opDMG2)
         dodgeCoolGuyflag=random.randint(Coolydodges1,Coolydodges2)
@@ -34,7 +37,6 @@ def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydm
         else:
             print('You dodged his attack')
         time.sleep(1)
-        break
     CoolGuyhp+=3
     return opLifeStatus, inventory, CoolGuyhp
 inventory = {
@@ -43,4 +45,4 @@ inventory = {
     "Killing Potion":0,
     "Walmart Shopping Bag":0
 }
-fight(100, "MeroDach", 86, 9, 34, 9, 8, 27, 0, 10, 0, 10, "B&P", "He does high damage", inventory)
+fight(100, "MeroDach", 67, 9, 28, 9, 8, 27, 0, 10, 0, 10, "B&P", "He does high damage", inventory)

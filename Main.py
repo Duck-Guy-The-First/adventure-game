@@ -28,7 +28,7 @@ race=int(input('WHAT ARE THY?\n[1] Human \n[2] Goblin\n[3] Elf\n[4] Monster\n[6]
 
 name = input("Enter your name: ")
 
-weapon=int(input('WHAT WEAPON DO THY CHOOSE?\n[1] Sword \n[2] Shield\n[3] Mace\n[5] A Bow And Arrow \n'))
+weapon=int(input('WHAT WEAPON DO THY CHOOSE?\n[1] Sword \n[2] Shield\n[3] Mace\n[5] Bow And Arrow \n'))
 
 charm=int(input("WHAT CHARM DO THY CHOOSE?\n[2] Crucifix \n[3] Amulet\n[4] A Weird Bottle\n[5] A Baby's Toy \n"))
 
@@ -47,7 +47,7 @@ weaponList = {
     2:"Shield",
     3:"Mace",
     4:"A Baby",
-    5:"A Bow And Arrow"
+    5:"Bow And Arrow"
 }
 charmList = {
     2:"Crucifix",
@@ -89,7 +89,7 @@ if(raceList[race]=="Walmart Shopping Bag"):
 
     font = ('Comic Sans MS',22)
 
-    label=tk.Label(root,text='The Walmart Shopping Bag Ending',font = font)
+    label=tk.Label(root,text='The Walmart Shopping Bag Ending\nOk go play the actual game now instead of looking at this joke ending',font = font)
     label.pack()
 
     button=tk.Button(root,text="Walmart",font = font,command=showWalmartImage)
@@ -393,7 +393,7 @@ while(True):
             print('You walk up to the toothbrush "You see that cop? hes been sleeping for 9 days i do not know how?"')
     if(choose5==6 or choose5_1==7):
         if(CaterpillarStatus==False):
-            print('You walk up to the glitchy thing "2... i said a number now go away you caterpiller killer"')
+            print('You walk up to the glitchy thing "2"')
         else:
             print('You walk up to the glitchy thing "Hi i need to say a number for you to play the game uhhhhhh\n2"')
     if(choose5_1==4):
@@ -412,5 +412,19 @@ if(choose6==2):
     else:
         print("You run out of the prison\nYour reputation decreases by 1")
     rep=-1
-print("You see a log so you decide to take a break and sit down and think. When you see something embedded in to the ground.\nYou walk over there and see a sword in the ground you try to pull it out of the ground until you see MERODACH he sees you but instead of attacking you he pulls out the sword and give it to you\nbefore he walks away to go destroy more towns.")
-choose7=int(input("WHAT DO THY CHOOSE\n[1] Attack him\n[2] Let him walk away"))
+if(weaponList[weapon]=="A Baby"):
+    print("You see a log so you decide to take a break and sit down and think. When you see something  in to the mud crying.\nYou walk over to it and see a baby crying in the mud you start walking away until the baby teleports in your hand.\n A baby has been added to your weapons now you do more damage. Your sanity has dropped to zero. You name the baby disappointment. You see Merodach and get ready for a fight hoping that Disappointment can be a good weapon but Merodach walks past you to go destroy more towns.")
+else:
+    print("You see a log so you decide to take a break and sit down and think. When you see something embedded in to the ground.\nYou walk over there and see it is a ",weaponList[weapon]," so you try to pull it out of the ground until you see MERODACH.\nYou start running around panicking Merodach sees you but instead of attacking you he pulls out the ",weaponList[weapon]," and give it to you before he walks away to go destroy more towns.")
+while(True):
+    choose7=int(input("WHAT DO THY CHOOSE\n[1] Attack him\n[2] Let him walk away"))
+    if(choose7==1):
+        print("This opiton is still being worked on so maybe try the other opiton sorry :(")
+    if(choose7==2):
+        if(weaponList[weapon]=="A Baby"):
+            print("You let him walk away not wanting to give Disappointment a concussion on the first fight")
+        else:
+            print("You let him walk away happy that you got the",weaponList[weapon],"and continue your journey")
+    break
+print("You walk around not knowing where your going and then realize that you need to THINK to survive :O")
+choose8=int(input("WHAT DO THY DO\n[1] Walk to the forest\n[2] Go to the neearby village\n "))
