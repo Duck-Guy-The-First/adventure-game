@@ -27,8 +27,15 @@ def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydm
             print("The ",opName,"has",opHP,"HP. He does little damage.")
 
         elif(fight1==3):
-            print("Your i")
-        
+            print("You have items:")
+            
+            num = 1
+            for item, value in inventory.items():
+
+                print("[",num,"]", item,":",value)
+                num+=1
+
+            itemChoose = int(input("WHAT DO THY CHOOSE?"))
         opDamage=random.randint(opDMG1,opDMG2)
         dodgeCoolGuyflag=random.randint(Coolydodges1,Coolydodges2)
         if(dodgeCoolGuyflag >= 2):
@@ -39,10 +46,11 @@ def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydm
         time.sleep(1)
     CoolGuyhp+=3
     return opLifeStatus, inventory, CoolGuyhp
+
 inventory = {
-    "Health Potion":0,
-    "Broken Chat Filter":0,
-    "Killing Potion":0,
-    "Walmart Shopping Bag":0
+    "Health Potion":3,
+    "Broken Chat Filter":1,
+    "Killing Potion":1,
+    "Walmart Shopping Bag":1
 }
 fight(100, "MeroDach", 67, 9, 28, 9, 8, 27, 0, 10, 0, 10, "B&P", "He does high damage", inventory)
