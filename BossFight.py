@@ -31,11 +31,17 @@ def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydm
             
             num = 1
             for item, value in inventory.items():
-
                 print("[",num,"]", item,":",value)
                 num+=1
 
             itemChoose = int(input("WHAT DO THY CHOOSE?"))
+            if(itemChoose == 1):
+                # Check if item is there or not
+                if (inventory["Health Potion"] == 0):
+                    print("You don't have enough health potions!")
+                else:
+                    print("You used the health potion! Heals 17HP")
+                    
         opDamage=random.randint(opDMG1,opDMG2)
         dodgeCoolGuyflag=random.randint(Coolydodges1,Coolydodges2)
         if(dodgeCoolGuyflag >= 2):
