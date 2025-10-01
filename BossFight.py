@@ -1,6 +1,7 @@
 import random
 import sys
 import time
+
 def Bossfight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydmg2, Coolydodges1, Coolydodges2, DodgeFlag1, DodgeFlag2, pabol_and_bob, CheckDMG, inventory):
     opLifeStatus = True #True #= #ALIVE #:O
     KPFlag=0
@@ -18,8 +19,11 @@ def Bossfight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolG
         CoolGuydamage=random.randint(CoolGuydmg1,CoolGuydmg2)
         if(KPFlag > 0 and KPFlag < 4):
                 CoolGuydamage *= 1.25
-                KPflag += 1
-            if(fight1==1):
+                KPFlag += 1
+        elif(KPFlag >= 4):
+            KPFlag = 0
+            
+        if(fight1==1):
             if(DodgeFlag >= opNum):
                 opHP-=CoolGuydamage
                 print("The ",opName," took",CoolGuydamage, "damage!")
@@ -53,11 +57,11 @@ def Bossfight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolG
                     badUse=int(input("This doesn't really work on boss fights. Use anyway?\n[1] I aint reading all that 😭😭😭😭😭😭😭😭😭 happy for you or sorry i don't care\n[2] I won't use it\n"))
                     if(badUse==1):
                         print("He looks at you with disappointment\n",pabol_and_bob,"")
-            if(itemChoose == 3):
+            if(itemChoose == "3"):
                 if (inventory["Killing Potion"] == 0):
                     print("Thy don't have enough killing potion!")
                 else:
-                    KPFlag=1
+                    KPFlag+=1
                     print("Thy have got more damage for 3 turns")
             if(itemChoose == "4"): 
                 if (inventory["Walmart Shopping Bag"] == 0):
@@ -92,4 +96,4 @@ inventory = {
     "Killing Potion":1,
     "Walmart Shopping Bag":1
 }
-Bossfight(100, "MeroDach", 142, 9, 28, 0, 17, 29, 0, 10, 10, 10, "Thy are stupid", "He does high damage", inventory)
+Bossfight(100, "MeroDach", 10000, 9, 28, 0, 17, 29, 0, 10, 10, 10, "Thy are stupid", "He does high damage", inventory)
