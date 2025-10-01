@@ -25,7 +25,7 @@ def fight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydm
                 print("The",opName,"dodges your attak.")
         
         elif(fight1==2):
-            print("The ",opName,"has",opHP,"HP. He does little damage.")
+            print("The ",opName,"has",opHP,"HP. ",CheckDMG,".")
         
         elif(fight1==3):
             if(RunAwayChance > RunNum):                                                        

@@ -6,11 +6,11 @@ def shop(coin,inventory):
             while(True):
                 CheckOption=input("DO THY WANT TO CHECK MY [1] HEALTH POTION\nOR DO THY WANT TO CHECK MY [2] Broken chat filter\nOR DO THY WANT TO CHECK MY [3] KILLING POTION\nOR DO THY WANT TO GO BACK [B]\n")
                 if(CheckOption=="1"):
-                    print("THIS HEALTH POTION GIVES THY 17 HP. VERY GOOD CHOICE I MUST SAY.")
+                    print("THIS HEALTH POTION HEALS THY VERY GOOD CHOICE I MUST SAY.")
                 elif(CheckOption=="2"):
                         print("THAT IS A BROKEN CHAT FILTER THAT I FOUND IN AGE OF EMPIRES II.\nIT MIGHT SEEM BAD BUT IT CAN INSULT THY ENEMIES MAKING THEM RUN AWAY CRYING AND FOR THE BATTLE END.\nIT IS SOMETHING THY NEED")
                 elif(CheckOption=="3"):
-                    print("THIS POTION TURNS THY IN TO A KILLING MACHINE IT GIVES THY 15% MORE DAMAGE IN A BATTLE FOR 3 TURNS. I WOULD 100% RECOMMEND IT.")
+                    print("THIS POTION TURNS THY IN TO A KILLING MACHINE IT GIVES THY MORE DAMAGE IN A BATTLE FOR 3 TURNS. I WOULD 100% RECOMMEND IT.")
                 elif(CheckOption=="B"):
                     break
                 else:
@@ -46,7 +46,7 @@ def shop(coin,inventory):
                     if(coin>=1000):
                         coin-=1000
                         print("HOW DID THY BUY THE WALMART SHOPING BAG?")
-                        inventory["Killing Potion"] += 1
+                        inventory["Walmart Shoping Bag"] += 1
                     else:
                         print("IT'S THE MOST EXPENSIVE ITEM WHY DO YOU THINK YOU CAN'T BUY IT")
                 elif(BuyOption=="B"):
