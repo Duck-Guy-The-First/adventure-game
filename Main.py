@@ -148,7 +148,7 @@ if(map==1):
 
     root.mainloop()
 
-    choose3=int(input('WHERE DO THY GO\n[1] Go to the crossed out area\n[2] Go back to the dirt road\n[3] Go to the cave\n[4] Go North West\n'))
+    choose3=int(input('WHERE DO THY GO\n[1] Go to the crossed out area\n[2] Go back to the dirt road\n[3] Go to the cave\n[4] Go to where the compass was pointing\n'))
 flag1=False
 choose3_1=0
 GoShop=False
@@ -166,7 +166,7 @@ while(True):
             time.sleep(3)
             print('But you see nothing so you walk away.')
         flag1=True
-        choose3_1=int(input("WHERE DO THY GO? part 2\n[1] Go back to the dirt road\n[2] Go to the cave\n[3] Go North West\n"))
+        choose3_1=int(input("WHERE DO THY GO (part 2)\n[1] Go back to the dirt road\n[2] Go to the cave\n[3] Go to where the compass was pointing\n"))
     if(choose3==2 or choose3_1==1):
         print("you walk to the dirt road you are almost at the dirt road when you see a MONSTER")
         HealthBarTutorial = 25
@@ -226,21 +226,22 @@ while(True):
             time.sleep(1.0)
 
         print("BOOM!")
-        print('the cave blew up, KILLING YOU INSTANTLY. the bad ending')
+        print('the cave blew up, KILLING YOU INSTANTLY\nThe bad ending')
         sys.exit()
     if(choose3==4 or choose3_1==3):
         if(GoShop==True):
-            print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of existence.\n01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100101 00100000 01110011 01101000 01101111 01110000\n You are in a weird forest an see the shop")
+            print("You walk back to the shop")
+            coin, inventory = shop(coin,inventory)
+            print("You walk back to where you were before")
         else:
             print("You walk into the bushes when you see...")
             coin, inventory = shop(coin,inventory)
-            print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00111010 00100000 01000100 01101001 01101101 01100101 01101110 01110011 01101001 01101111 01101110 00100000 00110010 00110000 00110110 00110011\n")
-            print("You see a cube and look at the shop to see it disappear\nSuper duper mini tiny shop (aka the cube) has been added to your inventory")
+            print("The shop owner thorws a red cube at you and you walk away going back to where you started\nSuper duper mini tiny shop (aka the cube) has been added to your inventory")
             GoShop=True
-            if(flag1==True):
-                choose3_1 = int(input("WHERE DO THY GO?\n[1] Dirt Road\n[2] Cave\n[3] Use the cube\n"))
-            else:
-                choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Use the cube\n"))
+        if(flag1==True):
+            choose3_1 = int(input("WHERE DO THY GO?\n[1] Dirt Road\n[2] Cave\n[3] Go back to the shop\n"))
+        else:
+            choose3 = int(input("WHERE DO THY GO?\n[1] Lake\n[2] Dirt Road\n[3] Cave\n[4] Go back to the shop\n"))
         
 
 time.sleep(3)
@@ -255,8 +256,8 @@ while(True):
     elif HealthBarCaterpillar <= 0:
         print("You kill the caterpillar what is wrong with you?")
         CaterpillarStatus=False
-        coin=coin+11
-        print("Sadly you got 11 coins... I hate you")
+        coin=coin+32
+        print("you got 32 coins... I hate you")
         break
     print("don't kill him if you're not terrible")
     print("You have",HealthBarP,"HP")
@@ -305,7 +306,10 @@ else:
     print("You walk away from the caterpillar. You get the wood and some duck tape so you can try to make a boat.")
 print("You put the materials on the floor in your destroyed home and start building a boat. You hear a buzzing sound and look up to see the sky gliching. You blink and it stops.")
 time.sleep(1)
-choose4=int(input("You make the boat.\nWHAT DO THY CHOOSE\n[1] Go to cave\n[2] Go to the lake\n"))
+if(GoShop==True):
+    choose4=int(input("You make the boat.\nWHAT DO THY CHOOSE\n[1] Go to cave\n[2] Go to the lake\n[3] Go back to the shop\n"))
+else:
+    choose4=int(input("You make the boat.\nWHAT DO THY CHOOSE\n[1] Go to cave\n[2] Go to the lake\n[3] Go to where the compass was pointing\n"))
 if(choose4==1):
     print("you walk to the cave and see a wall made out of ropes you try to untangle it... but you hear something")
     time.sleep(10)
@@ -327,6 +331,17 @@ if(choose4==2):
             print("You go back to the lake and you put the boat on the water.")
     else:
         print("You go to the lake and you put the boat on the water.")
+        if(choose4==3):
+            if(GoShop==True):
+                print("You walk back to the shop")
+                coin, inventory = shop(coin,inventory)
+                print("You walk back to where you were before")
+            else:
+                print("You walk into the bushes when you see...")
+                coin, inventory = shop(coin,inventory)
+                print("The shop owner thorws a red cube at you and you walk away going back to where you started\nSuper duper mini tiny shop (aka the cube) has been added to your inventory")
+                GoShop=True
+
 print("And start rowing the boat")
 choose5=0
 choose5_1=0
@@ -427,4 +442,17 @@ while(True):
             print("You let him walk away happy that you got the",weaponList[weapon],"and continue your journey")
     break
 print("You walk around not knowing where your going and then realize that you need to THINK to survive :O")
-choose8=int(input("WHAT DO THY DO\n[1] Walk to the forest\n[2] Go to the neearby village\n "))
+choose8=int(input("WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to the nearby cliff\n[4] Go to the two doors\n[5] Use the cube"))
+if(choose8==1):
+    print("")
+if(choose8==2):
+    print("")
+if(choose8==3):
+    print("")
+if(choose8==4):
+    print("")
+if(choose8==5):
+    print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of exi-01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100101 00100000 01110011 01101000 01101111 01110000\n You are in a weird forest an see the shop")
+    coin, inventory = shop(coin,inventory)
+    print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00111010 00100000 01000100 01101001 01101101 01100101 01101110 01110011 01101001 01101111 01101110 00100000 00110010 00110000 00110110 00110011\n... you are back where you were before")
+choose8=int(input("WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to the nearby cliff\n[4] Go to the two doors\n[5] Use the cube"))

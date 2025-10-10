@@ -96,4 +96,4 @@ inventory = {
     "Killing Potion":1,
     "Walmart Shopping Bag":1
 }
-Bossfight(100, "MeroDach", 10000, 9, 28, 0, 17, 29, 0, 10, 10, 10, "Thy are stupid", "He does high damage", inventory)
+Bossfight(100, "MeroDach", 143, 9, 28, 0, 17, 29, 0, 10, 10, 10, "Thy are stupid", "He does high damage", inventory)
