@@ -256,8 +256,8 @@ while(True):
     elif HealthBarCaterpillar <= 0:
         print("You kill the caterpillar what is wrong with you?")
         CaterpillarStatus=False
-        coin=coin+32
-        print("you got 32 coins... I hate you")
+        coin=coin+25
+        print("you got 25 coins... I hate you")
         break
     print("don't kill him if you're not terrible")
     print("You have",HealthBarP,"HP")
@@ -353,9 +353,9 @@ else:
     print("You see an island so you go over to it. You get out of the boat and see a prison so you walk in and see a cop sleeping, a goblin, a toothbrush, and a... thing? in jail. you also see a locked door, and coded locked door")
 while(True):
     if(CaterpillarStatus==False):
-        choose5_1=int(input("WHAT DO THY CHOOSE\n[1] Check the cop\n[2] Check the locked door\n[3] Check the coded locked door\n[4] Check your wanted poster\n[5] Talk to the goblin\n[6] Talk to the toothbrush\n[7] talk to the thing\n"))
+        choose5_1=int(input("WHAT DO THY CHOOSE\n[1] Check the cop\n[2] Check the locked door\n[3] Check the coded locked door\n[4] Check your wanted poster\n[5] Talk to the goblin\n[6] Talk to the toothbrush\n[7] talk to the thing\n[8] Use the cube\n"))
     else:
-        choose5=int(input("WHAT DO THY CHOOSE\n[1] Check the cop\n[2] Check the locked door\n[3] Check the coded locked door\n[4] Talk to the goblin\n[5] Talk to the toothbrush\n[6] talk to the thing\n"))
+        choose5=int(input("WHAT DO THY CHOOSE\n[1] Check the cop\n[2] Check the locked door\n[3] Check the coded locked door\n[4] Talk to the goblin\n[5] Talk to the toothbrush\n[6] talk to the thing\n[7] Use the cube\n"))
     if(choose5==1 or choose5_1==1):
         print("You check the cop to see if he has the key. You check his pockets and nothing. You check his hat and you see the key is glued to his head why?...\nBecause the key is glued you  can't get it")
     if(choose5==2 or choose5_1==2):
@@ -411,6 +411,10 @@ while(True):
             print('You walk up to the glitchy thing "2"')
         else:
             print('You walk up to the glitchy thing "Hi i need to say a number for you to play the game uhhhhhh\n2"')
+    if(choose5==7 or choose5==8):
+        print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of exi-01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100101 00100000 01110011 01101000 01101111 01110000\n You are in a weird forest an see the shop")
+        coin, inventory = shop(coin,inventory)
+        print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00111010 00100000 01000100 01101001 01101101 01100101 01101110 01110011 01101001 01101111 01101110 00100000 00110010 00110000 00110110 00110011\n... you are back where you were before")
     if(choose5_1==4):
         print("You check the wanted poster it says wanted for killing a caterpiller.\nI can't kill you but i hope other people will.")
 print("You walk out of the prison but you look at the key. and then look at the others.")
@@ -432,7 +436,7 @@ if(weaponList[weapon]=="A Baby"):
 else:
     print("You see a log so you decide to take a break and sit down and think. When you see something embedded in to the ground.\nYou walk over there and see it is a ",weaponList[weapon]," so you try to pull it out of the ground until you see MERODACH.\nYou start running around panicking Merodach sees you but instead of attacking you he pulls out the ",weaponList[weapon]," and give it to you before he walks away to go destroy more towns.")
 while(True):
-    choose7=int(input("WHAT DO THY CHOOSE\n[1] Attack him\n[2] Let him walk away"))
+    choose7=int(input("WHAT DO THY CHOOSE\n[1] Attack him\n[2] Let him walk away\n[3] Use the cube\n"))
     if(choose7==1):
         print("This opiton is still being worked on so maybe try the other opiton sorry :(")
     if(choose7==2):
@@ -440,11 +444,17 @@ while(True):
             print("You let him walk away not wanting to give Disappointment a concussion on the first fight")
         else:
             print("You let him walk away happy that you got the",weaponList[weapon],"and continue your journey")
+        break
+    if(choose7==3):
+        print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of exi-01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100101 00100000 01110011 01101000 01101111 01110000\n You are in a weird forest an see the shop")
+        coin, inventory = shop(coin,inventory)
+        print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00111010 00100000 01000100 01101001 01101101 01100101 01101110 01110011 01101001 01101111 01101110 00100000 00110010 00110000 00110110 00110011\n... you are back where you were before")
+        print("You get ready to fight Merodach but then you realize that he's already gone to destroy more towns")
     break
 print("You walk around not knowing where your going and then realize that you need to THINK to survive :O")
 choose8=int(input("WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to the nearby cliff\n[4] Go to the two doors\n[5] Use the cube"))
 if(choose8==1):
-    print("")
+    print("You walk through the forest hoping that you don't die")
 if(choose8==2):
     print("")
 if(choose8==3):
