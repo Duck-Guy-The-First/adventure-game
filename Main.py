@@ -155,8 +155,9 @@ GoShop=False
 
 while(True):
     if(choose3==1):
+        print("You see a lake and try to find a way past it. You look around for anything")
         if(choose1==1):
-            print('You hear something "Hey you there, come on over here! It is me Eveline", says the old lady from before. You tell her that you do not have a boat and\nshe says. "Well i have blueprints to make a boat" says Eveline so you take the blueprints and goto make the boat.')
+            print('You were about to give up until you hear a voice "Hey you there, come on over here! It is me Eveline", says the old lady from before. You tell her that you do not have a boat and\nshe says. "Well i have blueprints to make a boat" says Eveline so you take the blueprints and goto make the boat.')
         if(choose1==2):
             print('.')
             time.sleep(3)
@@ -452,17 +453,29 @@ while(True):
         print("You get ready to fight Merodach but then you realize that he's already gone to destroy more towns")
     break
 print("You walk around not knowing where your going and then realize that you need to THINK to survive :O")
-choose8=int(input("WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to the nearby cliff\n[4] Go to the two doors\n[5] Use the cube"))
+theForest=False
+nearbyVillage=False
+weirdCliff=False
+twoDoors=False
+choose8=int(input("WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to a weird cliff\n[4] Go to the two doors\n[5] Use the cube\n"))
 if(choose8==1):
-    print("You walk through the forest hoping that you don't die")
+    theForest=True
+    print("You walk through the forest hoping that you don't die you look around for anything and then you see a deer on two legs.\nYou stare at it, it stares back until it runs away.")
+    print("You continue walking around until you see a missing poster and draw a funny mustache on it before continuing on your way.\n")
 if(choose8==2):
-    print("")
+    nearbyVillage=True
+    if(CaterpillarStatus==False):
+        print("You go to the nearby village and everyone is hidding for some reason")
+    else:
+        print("You go to the nearby village and it's really peaceful, almost everyone is happy")
 if(choose8==3):
+    weirdCliff=True
     print("")
 if(choose8==4):
+    twoDoors=True
     print("")
 if(choose8==5):
     print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of exi-01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100101 00100000 01110011 01101000 01101111 01110000\n You are in a weird forest an see the shop")
     coin, inventory = shop(coin,inventory)
     print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00111010 00100000 01000100 01101001 01101101 01100101 01101110 01110011 01101001 01101111 01101110 00100000 00110010 00110000 00110110 00110011\n... you are back where you were before")
-choose8=int(input("WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to the nearby cliff\n[4] Go to the two doors\n[5] Use the cube"))
+choose8=int(input("WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to the nearby cliff\n[4] Go to the two doors\n"))
