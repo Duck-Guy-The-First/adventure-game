@@ -468,6 +468,10 @@ if(choose8==2):
         print("You go to the nearby village and everyone is hidding for some reason")
     else:
         print("You go to the nearby village and it's really peaceful, almost everyone is happy")
+    chooseVillage1=int(input("WHAT DO THY CHOOSE\n[1] Talk to the civilians\n[2] Explore the place\n[3] Break into peoples houses (because for some reason that's normal in video games)\n[4] Use the cube\n"))
+    if(chooseVillage1==1):
+        talkVillage=int(input("WHO DO THY TALK TO\n[1] The kids at the park (NOT in a creepy way)\n[2] Talk to people on a bus\n[3] Talk to the crazy person on the street"))
+        if(talkVillage)
 if(choose8==3):
     weirdCliff=True
     print("")
