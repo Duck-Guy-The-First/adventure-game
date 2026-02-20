@@ -5,37 +5,37 @@ import time
 def Bossfight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydmg2, Coolydodges1, Coolydodges2, DodgeFlag1, DodgeFlag2, pabol_and_bob, CheckDMG, inventory):
     opLifeStatus = True #True #= #ALIVE #:O
     KPFlag=0
+    KPActive = False
     while(True):
         if CoolGuyhp <= 0:
             print ("YOU DIED")
             sys.exit()
-            
         elif opHP <= 0:
             break
         print("You have",CoolGuyhp,"HP")
         fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n[3] Inventory\n"))
 
         DodgeFlag=random.randint(DodgeFlag1,DodgeFlag2)
-        CoolGuydamage=random.randint(CoolGuydmg1,CoolGuydmg2)
-        if(KPFlag > 0 and KPFlag < 4):
-                CoolGuydamage *= 1.25
-                KPFlag += 1
-        elif(KPFlag >= 4):
+        CoolGuydamage = random.randint(CoolGuydmg1, CoolGuydmg2)
+        if KPActive and KPFlag < 3:
+            CoolGuydamage = int(CoolGuydamage * 1.25)
+            KPFlag += 1
+        if KPFlag >= 3:
+            KPActive = False
             KPFlag = 0
-            
+
         if(fight1==1):
             if(DodgeFlag >= opNum):
                 opHP-=CoolGuydamage
                 print("The ",opName," took",CoolGuydamage, "damage!")
             else:
                 print("The",opName,"dodges your attack.")
-        
+
         elif(fight1==2):
             print("The ",opName,"has",opHP,"HP. ",CheckDMG,".")
 
         elif(fight1==3):
             print("You have items:")
-            
             num = 1
             for item, value in inventory.items():
                 print("[",num,"]", item,":",value)
@@ -60,9 +60,12 @@ def Bossfight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolG
             if(itemChoose == "3"):
                 if (inventory["Killing Potion"] == 0):
                     print("Thy don't have enough killing potion!")
-                else:
-                    KPFlag+=1
+                elif not KPActive:
+                    KPActive = True
+                    KPFlag = 0
                     print("Thy have got more damage for 3 turns")
+                else:
+                    print("Killing Potion effect is already active") 
             if(itemChoose == "4"): 
                 if (inventory["Walmart Shopping Bag"] == 0):
                     print("Why do thy thinks thy has this?")
@@ -91,9 +94,9 @@ def Bossfight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolG
     return opLifeStatus, inventory, CoolGuyhp
 
 inventory = {
-    "Health Potion":3,
-    "Broken Chat Filter":1,
-    "Killing Potion":1,
-    "Walmart Shopping Bag":1
+    "Health Potion":0,
+    "Broken Chat Filter":0,
+    "Killing Potion":0,
+    "Walmart Shopping Bag":0
 }
 Bossfight(100, "MeroDach", 143, 9, 28, 0, 17, 29, 0, 10, 10, 10, "Thy are stupid", "He does high damage", inventory)
