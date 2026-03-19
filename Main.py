@@ -1,6 +1,7 @@
-from threading import Timer
 from Fight import fight
+from BossFight import Bossfight
 from Shop import shop
+from threading import Timer
 import random
 import sys
 import tkinter as tk
@@ -8,9 +9,27 @@ from PIL import Image, ImageTk
 import time
 
 
-def showImage():
-    img = Image.open('Map-1.png')
-    img = img.resize((250, 130))
+def showMapImage():
+    img = Image.open('Map.1.png')
+    img = img.resize((950, 600))
+    photo = ImageTk.PhotoImage(img)
+
+    image_label.config(image=photo)
+    image_label.image = photo
+
+
+def showCompassImage():
+    img = Image.open('Compass.1.png')
+    img = img.resize((950, 600))
+    photo = ImageTk.PhotoImage(img)
+
+    image_label.config(image=photo)
+    image_label.image = photo
+
+
+def showMapImage2():
+    img = Image.open('Map.2.png')
+    img = img.resize((950, 600))
     photo = ImageTk.PhotoImage(img)
 
     image_label.config(image=photo)
@@ -157,7 +176,7 @@ if (map == 1):
     label.pack()
 
     button = tk.Button(root, text="check the map",
-                       font=font, command=showImage)
+                       font=font, command=showMapImage)
     button.pack()
 
     image_label = tk.Label(root)
@@ -226,16 +245,117 @@ time.sleep(3)
 print('You walk to the dirt road after the fight and see destroyed houses and dead people at the camp. You get the wood from the destroyed houses and go to your home.\nYour walking to your house and see that it is DESTROYED. In a fit of rage you punch a tree with the middle part breaking but the rest of it staying up.\nbut a caterpillar jumps out and says "YOU ARE DESTROYING MY HOME MAN" and he jumps at you')
 
 
-CaterpillarStatus = True
-fight(100, "Caterpiller", 1, "You kill the caterpiller, I hate you", 1, 4, 1, 1000000, 1000000, 9, 10, 0, 10, "P&B", "He does little damage.", inventory, 26 and CaterpillarStatus == False,
-      "You say that his wife and kids are dead.\nBut he dosn't believe you because they don't exist.", 0, 9, 10, "You put him on an other tree... You walk away as he screams at you still mad.")
+HealthBarP = 100
+HealthBarCaterpillar = 1
+CaterpillarStatus=True
+while(True):
+    if HealthBarP <= 0:
+        print ("YOU DIED")
+        sys.exit()
+    
+    elif HealthBarCaterpillar <= 0:
+        print("You kill the caterpillar what is wrong with you?")
+        CaterpillarStatus=False
+        coin=coin+25
+        print("you got 25 coins... I hate you")
+        break
+    print("don't kill him if you're not terrible")
+    print("You have",HealthBarP,"HP")
+    fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n[4] Run away\n"))
 
-if (CaterpillarStatus == False):
-    rep = rep-1
+    DodgeFlag=random.randint(0,10)
+    PlayerDamage=random.randint(10000,10000)
+    RunAwayChance=random.randint(0,10)
+
+    if(fight1==1):
+        if(DodgeFlag >= 3):
+            HealthBarCaterpillar=HealthBarCaterpillar-PlayerDamage
+            print("The caterpillar took",PlayerDamage, "damage!")
+        else:
+            print("You missed and punched the tree and he gets mad")
+    
+    elif(fight1==2):
+        print("The caterpillar has",HealthBarCaterpillar,"HP. He does little damage.")
+    
+    elif(fight1==3):
+        print("WHAT DO THY CHOOSE?")
+        num = 1
+        for item, value in inventory.items():
+            print("[",num,"]", item,":",value)
+            num+=1
+        print("B to go back")
+        itemChoose = input("WHAT DO THY CHOOSE?\n")
+        if(itemChoose == "1"):
+            if (inventory["Health Potion"] == 0):
+                print("THY DON'T HAVE ENOUGH HEALTH POTIONS!")
+            else:
+                print("Thy used the health potion! Heals 17HP")
+                CoolGuyhp += 27
+                if(CoolGuyhp>=100):
+                    CoolGuyhp = 100
+        if(itemChoose == "2"):
+            if (inventory["Broken Chat Filter"] == 0):
+                    print("Thy don't have enough broken chat filters!")
+        else:    
+            print("THY WORMS EGO IS TO STRONG TO BE INSULTED")
+            for item, value in inventory.items():
+                print("[",num,"]", item,":",value)
+                num+=1
+
+            if(itemChoose == "3"):
+                if (inventory["Killing Potion"] == 0):
+                    print("THY DON'T HAVE ENOUGH KILL POTIONS!")
+                elif not KPActive:
+                    KPActive = True
+                    KPFlag = 0
+                    meanie += 1
+                    print("THY USED THE KILLING POTION!\nYou will do more damage for 3 turns!")
+                else:
+                    print("Killing Potion effect is already active") 
+            
+            if(itemChoose == "4"): 
+                if (inventory["Walmart Shopping Bag"] == 0):
+                    print("Why do thy thinks thy has this?")
+                else:
+                    print("You used the walmart shopping bag you now have")
+                    time.sleep(4)
+                    print(".")
+                    time.sleep(1)
+                    print(".")
+                    time.sleep(1)
+                    print(".")
+                    time.sleep(1)
+                    print("No life")
+                    time.sleep(3)
+            continue
+
+
+    elif(fight1==4):
+        if(RunAwayChance >= 9.5):
+            print('You put him on an other tree... He is still mad and you walk away as he screams at you.')
+            break
+        else:
+            print("You say that his wife and kids are dead.\nBut he dosn't believe you.")
+
+    CaterpillarDamage=round(random.uniform(0.5,4.5),1)
+    DodgePlayerFlag=round(random.uniform(9.5,10.0),1)
+
+    if(DodgePlayerFlag >= 2):
+        HealthBarP=HealthBarP-CaterpillarDamage
+        print('You took',CaterpillarDamage,'damage!')
+    else:
+        print('He missed')
+    time.sleep(1)
+time.sleep(3)
+
+if(CaterpillarStatus==False):
+    rep=rep-1
 else:
-    rep = rep+1
+    rep=rep+1
 
 if (CaterpillarStatus == False):
+
+
     print("You get wood and some duck tape after you KILLED THE CATERPILLAR YOU MONSTER so you try can make a boat")
 else:
     print("You walk away from the caterpillar. You get the wood and some duck tape so you can try to make a boat.")
@@ -284,7 +404,6 @@ choose5 = 0
 choose5_1 = 0
 get_key = False
 flag2 = False
-key = False
 seconds = 3
 timeout = 3
 if (CaterpillarStatus == False):
@@ -399,7 +518,7 @@ if __name__ == "__main__":
         print("You get tased before getting thrown in jail with the toothbrush!")
         dodged = False
 
-    fight(100, "Sleeply Cop", 53, "You attack him so much that he gets tired and falls asleep", 9, 29, 5, 6, 13, 0, 10, 0, 10, "P&B", "He does medium damage", inventory, 9 and key == True, "You point at the prison and say that it is a prisoners to distraction him.\nHe doesn't look away from you.", 0, 7, 10, "You throw a neckpillow at the Sleeply Cop and he falls asleep.")
+    fight(100, "Sleeply Cop", 53, "You attack him so much that he gets tired and falls asleep", 9, 29, 5, 6, 13, 0, 10, 0, 10, "P&B", "He does medium damage", inventory, 9, "You point at the prison and say that it is a prisoners to distraction him.\nHe doesn't look away from you.", 0, 7, 10, "You throw a neckpillow at the Sleeply Cop and he falls asleep.")
 
     chooseFree = int(input(
         "You watch him fall on the floor and see he has a key and look at the prisoners.\nWHAT DO THEY CHOOSE\n[1] Free the prisoners\n[2] Run out of the prison\n"))
@@ -420,12 +539,12 @@ else:
     print("You see a log so you decide to take a break and sit down and think. When you see something embedded in to the ground.\nYou walk over there and see it is a ",
           weaponList[weapon], " so you try to pull it out of the ground until you see MERODACH.\nYou start running around panicking Merodach sees you but instead of attacking you he pulls out the ", weaponList[weapon], " and give it to you before he walks away to go destroy more towns.")
 while (True):
-    choose7 = int(input(
+    choose6 = int(input(
         "WHAT DO THY CHOOSE\n[1] Attack him\n[2] Let him walk away\n[3] Use the cube\n"))
-    if (choose7 == 1):
-        print(
-            "This opiton is still being worked on so maybe try the other opiton sorry :(")
-    if (choose7 == 2):
+    if (choose6 == 1):
+        print("You attack Merodach with Disappointment and the fight starts")
+        
+    if (choose6 == 2):
         if (weaponList[weapon] == "A Baby"):
             print(
                 "You let him walk away not wanting to give Disappointment a concussion the first time")
@@ -433,8 +552,8 @@ while (True):
             print("You let him walk away happy that you got the",
                   weaponList[weapon], "and continue your journey")
         break
-    if (choose7 == 3):
-        print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of exi-01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100101 00100000 01110011 01101000 01101111 01110000\n You are in a weird forest an see the shop")
+    if (choose6 == 3):
+        print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of exi-01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00124848 24848484848484848484848484848484848484848484855555555555555555555555555777777777777777777777777999999999999999999999333333333333333333332222222222222222222266666666666666666666")
         coin, inventory = shop(coin, inventory)
         print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00111010 00100000 01000100 01101001 01101101 01100101 01101110 01110011 01101001 01101111 01101110 00100000 00110010 00110000 00110110 00110011\n... you are back where you were before")
     break
@@ -443,13 +562,13 @@ theForest = False
 nearbyVillage = False
 weirdCliff = False
 twoDoors = False
-choose8 = int(input(
+choose7 = int(input(
     "WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to a weird cliff\n[4] Go to the two doors\n[5] Check the compass\n[6] Use the cube\n"))
-if (choose8 == 1):
+if (choose7 == 1):
     theForest = True
     print("You walk through the forest hoping that you don't die you look around for anything and then you see a deer on two legs.\nYou stare at it, it stares back until it runs away.")
     print("You continue walking around until you see a missing poster and draw a funny mustache on it before continuing on your way.\n")
-if (choose8 == 2):
+if (choose7 == 2):
     nearbyVillage = True
     if (CaterpillarStatus == False):
         print("You go to the nearby village and everyone is hidding for some reason")
@@ -459,15 +578,50 @@ if (choose8 == 2):
         "WHAT DO THY CHOOSE\n[1] Explore the place\n[2] Continue on your way\n[3] Use the cube\n"))
     if (chooseVillage1 == 1):
         goVillage = int(input(
-            "WHERE DO THY GO?\n[1] Go to the bus\n[2] Go to a shop\n[3] Break into peoples houses (because for some reason that's normal in video games)\n[4] Do a quest\n[5] "))
+            "WHERE DO THY GO?\n[1] Go to the bus\n[2] Go to a back alley\n[3] Break into peoples houses (because for some reason that's normal in video games)\n[4] Continue on your way\n"))
+        if (goVillage == 1):
+            print('You go to the bus and see a bus driver sleeping. You check his pockets and find 5 coins and pocket the money, before waking him up. "Eh? Where do you want to go?" he asks and you think for a second')
+            coin = coin+5
+            chooseBus = int(input(
+                "WHERE DO THY GO?\n[1] Go to your home town\n[B] Go back\n"))
+            if (chooseBus == "1" and coin >= 8):
+                
+                rebuild = False
+                CaterpillarStatus = False
+                print('He reaches his hand out for the money and you give him 8 coins and you give him the money so he drives across the oceanto get you to the dirt road at the first island\nYou get out of the bus and he throws a button at you before driving away with no explanation because you are a terrible person after KILLING THE CATERPILLAR!!!!!!!!!!')
+                print("You look around the area and see your destroyed house and the tree that you punched with the caterpiller's dead body to forever remind you of your sins")
+            else:
+                print('He reaches his hand out for the money and you give him 8 coins and you give him the money so he drives across the oceanto get you to the dirt road at the first island\nYou get out of the bus and he throws a button at you before driving away with no explanation because he doesn\'t care')
+                print("You look around the area and see your destroyed house and the tree that you punched with the caterpiller just staring at you")
+                
+                if (rebuild == True):
+                    chooseDR = int(input(
+                        "WHAT DO THEY DO?\n[1] Go to your destroyed house\n[2] Go to the lake\n[3] Go to the mountain\n[4] Go to the tree\n[5] Get some wood\n"))
+                else:
+                    chooseDR = int(input(
+                        "WHAT DO THEY DO?\n[1] Go to your destroyed house\n[2] Go to the lake\n[3] Go to the mountain\n[4] Go to the tree\n"))
 
-if (choose8 == 3):
+                    if (chooseDR == 1):
+                        print("You walk to your destroyed house and just stand there...\nBut then you get the idea to rebuild it.\n New quest: Rebuild your house")
+                        rebuild = True
+
+            if (chooseBus == "1" and coin < 8):
+                print('"What do you mean you don\'t have enough money? Get out of the bus!" he throws you out of the bus')
+                HealthBarP -= 5
+                goVillage = int(input(
+                    "WHERE DO THY GO?\n[1] Go to the bus\n[2] Go to a back alley\n[3] Break into peoples houses (because for some reason that's normal in video games)\n[4] Continue on your way\n"))
+            elif (chooseBus == "B"):
+                print('"Then why are you here? Go." You walk out of the bus.')
+                goVillage = int(input(
+                    "WHERE DO THY GO?\n[1] Go to the bus\n[2] Go to a back alley\n[3] Break into peoples houses (because for some reason that's normal in video games)\n[4] Continue on your way\n"))
+
+if (choose7 == 3):
     weirdCliff = True
     print("")
-if (choose8 == 4):
+if (choose7 == 4):
     twoDoors = True
     print("")
-if (choose8 == 5):
+if (choose7 == 5):
 
     root = tk.Tk()
     root.title('Ics jpo sgd kafnn hnjsf5x? 2ngko fa 5gi!')
@@ -479,16 +633,19 @@ if (choose8 == 5):
     label.pack()
 
     button = tk.Button(root, text="check the map",
-                       font=font, command=showImage)
+                       font=font, command=showCompassImage)
     button.pack()
 
     image_label = tk.Label(root)
     image_label.pack()
 
     root.mainloop()
-if (choose8 == 6):
-    print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of exi-01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00100000 01110100 01101000 01100101 00100000 01110011 01101000 01101111 01110000\n You are in a weird forest an see the shop")
+choose7 = int(input(
+    "WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to the nearby cliff\n[4] Go to the two doors\n[5] Go to where the compass is pointing\n[6] Use the cube\n"))
+
+if (choose7 == 6):
+    print("You thorw the cube in the air and it starts floating. the walls start to fade away ones and zeros coming and going and soon you start to fade out of exi-01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00124848 24848484848484848484848484848484848484848485555555555555555555577777777777777777799999999999993333333332222222226666666666")
     coin, inventory = shop(coin, inventory)
-    print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011 00100000 01101110 01101111 01110111 00100000 01101110 01101111 01110100 01101000 01101001 01101110 01100111 00100000 01100010 01110101 01110100 00100000 01110100 01101000 01100101 00100000 01100101 01101101 01110000 01110100 01111001 00100000 01100010 01101100 01100001 01100011 01101011 00100000 01110110 01101111 01101001 01100100 00101110 00100000 01001110 01100101 01111000 01110100 00100000 01100100 01100101 01110011 01110100 01101001 01101110 01100001 01110100 01101001 01101111 01101110 00111010 00100000 01000100 01101001 01101101 01100101 01101110 01110011 01101001 01101111 01101110 00100000 00110010 00110000 00110110 00110011\n... you are back where you were before")
-choose8 = int(input(
+    print("The shop keeper snaps his fingers and he disappears but suddenly 01010100 01101000 01100101 01110010 01100101 00100000 01101001 01110011")
+choose7 = int(input(
     "WHAT DO THY Go\n[1] Go to the forest\n[2] Go to the nearby village\n[3] Go to the nearby cliff\n[4] Go to the two doors\n"))

@@ -2,8 +2,8 @@ import random
 import sys
 import time
 
-from Test import CaterpillarStatus
-def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydmg2, Coolydodges1, Coolydodges2, DodgeFlag1, DodgeFlag2, pabol_and_bob, CheckDMG, inventory, coinReward,
+
+def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolGuydmg2, Coolydodges1, Coolydodges2, DodgeFlag1, DodgeFlag2, pabol_and_bob, CheckDMG, inventory,
            RunAwayMessageFail, RunAway1, RunNum, RunAway2, RunAwayMessagePass):
     opLifeStatus = True #True #= #ALIVE #:O
     KPFlag = 0
@@ -18,6 +18,11 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
         elif opHP <= 0:
             
             break
+
+        if opHP <= 0:
+            print(opDeath)
+            break
+
         print("You have",CoolGuyhp,"HP")
         fight1=int(input("WHAT DO THY CHOOSE?\n[1] Fight\n[2] Check\n[3] Inventory\n[4] Run away\n"))
 
@@ -63,7 +68,8 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
                 if (inventory["Broken Chat Filter"] == 0):
                     print("THY DON'T HAVE ENOUGH BROKEN CHAT FILTERS!")
                 else:
-                    beMeanie = input(f"THY USE BROKEN CHAT FILTER, CHOOSE AN INSUL (you have {meanie} meanie points)\n[1 (need 7 meanie points) You weird |2 (need 10 meanie points) You are a potato |3 (need 14 meanie points) You got square brain]\n[4 (need 18 meanie points) Your dad is a rock |5 (need 21 meanie points) What 9 + 10? |6 (need 27 meanie points) You are a noob]\n[7 (need 32 meanie points) You are old |8 (need 39 meanie points) Your mama |9 (need 46 meanie points) Your single ]\nB to go back\n")
+                    beMeanie = input(f"THY USE BROKEN CHAT FILTER, CHOOSE AN INSULT\nmeanie points: {meanie}\n[1 You weird (need 7 meanie points)|2 You are a potato (need 10 meanie points)|3 You got square brain (need 14 meanie points)]\n[4 Your dad is a rock (need 18 meanie points)|5 What 9 + 10? (need 21 meanie points)|6 You are a noob (need 27 meanie points)]\n[7 You are old (need 32 meanie points)| 8 You are ugly (need 39 meanie points)| 9 Your single (need 46 meanie points)]\nB to go back\n")
+                    
                     if beMeanie == "1":
                         if meanie >= 5:
                             print(opName,"looks at you a bit sad.\n depression increases by 2")
@@ -71,6 +77,7 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
                             meanie -= 5
                         else:
                             print("THY IS BROKE!.. ON INSULTS!")
+                    
                     elif beMeanie == "2":
                         if meanie >= 9:
                             print(opName,"looks at you confused.\n depression increases by 3")
@@ -78,6 +85,7 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
                             meanie -= 9
                         else:
                             print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                    
                     elif beMeanie == "3":
                         if meanie >= 14:
                             print(opName,"looks at you mad. very offensive!\n depression increases by 7")
@@ -85,6 +93,7 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
                             meanie -= 14
                         else:
                             print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                    
                     elif beMeanie == "4":
                         if meanie >= 18:
                             print(opName,"looks at you like you are a rock.\n depression increases by 14")
@@ -92,6 +101,7 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
                             meanie -= 18
                         else:
                             print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                    
                     elif beMeanie == "5":
                         if meanie >= 21:
                             print(opName,"looks at you with tears as he doesn't know the answer.\n depression increases by 14")
@@ -99,6 +109,7 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
                             meanie -= 21
                         else:
                             print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                    
                     elif beMeanie == "6":
                         if meanie >= 27:
                             print(opName,"gets sad that he has no b-.\n depression increases by 17")
@@ -106,6 +117,7 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
                             meanie -= 27
                         else:
                             print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                    
                     elif beMeanie == "7":
                         if meanie >= 32:
                             print(opName,"gets close to sobbing after getting called a noob.\n depression increases by 23")
@@ -113,31 +125,52 @@ def fight(CoolGuyhp, opName, opHP, opDeath, opDMG1, opDMG2, opNum, CoolGuydmg1, 
                             meanie -= 32
                         else:
                             print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                    
                     elif beMeanie == "8":
                         if meanie >= 40:
-                            print(opName,".\n"+opName+"'s depression increases by 28, plus 100 back pain")
+                            print(opName,"back gets worse.\n"+opName+"'s depression increases by 28, plus 100 back pain")
                             depression += 28
                             meanie -= 40
                         else:
                             print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                    
                     elif beMeanie == "9":
                         if meanie >= 47:
-                            
-                            depression += 10000
+                            print(f"{opName} cries a bit as he is single.\n depression increases by 36")
+                            depression += 36
                             meanie -= 47
                         else:
                             print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
-                    elif beMeanie == "Your mama" or beMeanie == "your mama" or beMeanie == "Your Mama" or beMeanie == "your Mama":
-                        print(f"You have gone too far as {opName} remembers his mama.\n depression increases by 10000")
-                        depression += 10000
+                    
+                    elif beMeanie == "Your mama" or beMeanie == "your mama" or beMeanie == "Your Mama" or beMeanie == "your Mama" or beMeanie == "Yourmama" or beMeanie == "yourmama" or beMeanie == "YourMama" or beMeanie == "yourMama":
+                        choose = int(input("THIS INSULT COSTS 100 MEANIE POINTS, CAN YOU USE IT?\n[1] Yes\n[2] No\n"))
+                        if choose == 1:
+                            meanie -= 100
+                            print(f"You have gone too far as {opName} remembers his mama.\ndepression increases by 10000")
+                            depression += 10000
+                        else:
+                            print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                    elif choose == 2:
+                        print("THY DOESN'T USE IT!")
+                        beMeanie = input(f"THY USE BROKEN CHAT FILTER, CHOOSE AN INSULT\nmeanie points: {meanie}\n[1 You weird (need 7 meanie points)|2 You are a potato (need 10 meanie points)|3 You got square brain (need 14 meanie points)]\n[4 Your dad is a rock (need 18 meanie points)|5 What 9 + 10? (need 21 meanie points)|6 You are a noob (need 27 meanie points)]\n[7 You are old (need 32 meanie points)| 8 You are ugly (need 39 meanie points)| 9 Your single (need 46 meanie points)]\nB to go back\n")
 
-                    elif beMeanie == "Your mom" or beMeanie == "your mom" or beMeanie == "Your Mom" or beMeanie == "your Mom":
-                        print(f"You have gone too far as {opName} remembers his mom.\n depression increases by 10000")
-                        depression += 10000
+                    elif beMeanie == "Your mom" or beMeanie == "your mom" or beMeanie == "Your Mom" or beMeanie == "your Mom" or beMeanie == "Yourmom" or beMeanie == "yourmom" or beMeanie == "YourMom" or beMeanie == "yourMom":
+                        choose = int(input("THIS INSULT COSTS 100 MEANIE POINTS, CAN YOU USE IT?\n[1] Yes\n[2] No\n"))
+                        if choose == 1:
+                            meanie -= 100
+                            print(f"You have gone too far as {opName} remembers his mom.\n depression increases by 10000")
+                            depression += 10000
+                        else:
+                            print("THY DON'T HAVE ENOUGH MEANIE POINTS!")
+                        if choose == 2:
+                            print("THY DOESN'T USE IT!")
+                            beMeanie = input(f"THY USE BROKEN CHAT FILTER, CHOOSE AN INSULT\nmeanie points: {meanie}\n[1 You weird (need 7 meanie points)|2 You are a potato (need 10 meanie points)|3 You got square brain (need 14 meanie points)]\n[4 Your dad is a rock (need 18 meanie points)|5 What 9 + 10? (need 21 meanie points)|6 You are a noob (need 27 meanie points)]\n[7 You are old (need 32 meanie points)| 8 You are ugly (need 39 meanie points)| 9 Your single (need 46 meanie points)]\nB to go back\n")
+
                     elif beMeanie == "B" or beMeanie == "b":
                         for item, value in inventory.items():
                             print("[",num,"]", item,":",value)
                             num+=1
+
 
             if(itemChoose == "3"):
                 if (inventory["Killing Potion"] == 0):
@@ -194,6 +227,5 @@ inventory = {
 # Move runnable code under this guard so import no longer triggers it
 if __name__ == "__main__":
     # demo / test code here
-    fight(100, "Monster", 34, "He is at 4 HP but jumps tawords the bushs where you lose Monster", 4, 11, 5, 6, 13, 0, 10, 0, 10, "P&B", "He does little damage.", inventory, 4, "You danced cooly to get past him...\n he doesn't care", 0, 7, 10, "You see a butterfly in the sky and tell him.\n He looks up and you run past him, sneaking away.")
-    fight(100, "Caterpiller", 1, "You kill the caterpiller, I hate you", 1, 4, 1, 1000000, 1000000, 9, 10, 0, 10, "P&B", "He does little damage.", inventory, 26, "You say that his wife and kids are dead.\nBut he dosn't believe you because they don't exist.", 0, 9, 10, "You put him on an other tree... You walk away as he screams at you still mad.")
-    fight(100, "Sleeply Cop", 53, "You attack him so much that he gets tired and falls asleep", 9, 29, 5, 6, 13, 0, 10, 0, 10, "P&B", "He does medium damage", inventory, 9, "You point at the prison and say that it is a prisoners to distraction him.\nHe doesn't look away from you.", 0, 7, 10, "You throw a neckpillow at the Sleeply Cop and he falls asleep.")
+    fight(100, "Monster", 34, "He is at 4 HP but jumps tawords the bushs where you lose Monster", 4, 11, 5, 6, 13, 0, 10, 0, 10, "P&B", "He does little damage.", inventory, "You danced cooly to get past him...\n he doesn't care", 0, 7, 10, "You see a butterfly in the sky and tell him.\n He looks up and you run past him, sneaking away.")
+    fight(100, "Sleeply Cop", 53, "The fight goes for so long that the Sleeply Cop gets tired and falls asleep", 9, 29, 5, 6, 13, 0, 10, 0, 10, "P&B", "He does medium damage", inventory, "You point at the prison and say that it is a prisoners to distraction him.\nHe doesn't look away from you.", 0, 7, 10, "You throw a neckpillow at the Sleeply Cop and he falls asleep.")

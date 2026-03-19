@@ -54,9 +54,7 @@ def Bossfight(CoolGuyhp, opName, opHP, opDMG1, opDMG2, opNum, CoolGuydmg1, CoolG
                 if (inventory["Broken Chat Filter"] == 0):
                     print("Thy don't have enough broken chat filters!")
                 else:
-                    badUse=int(input("This doesn't really work on boss fights. Use anyway?\n[1] I aint reading all that 😭😭😭😭😭😭😭😭😭 happy for you or sorry i don't care\n[2] I won't use it\n"))
-                    if(badUse==1):
-                        print("He looks at you with disappointment\n",pabol_and_bob,"")
+                    print("THY CAN'T USE BROKEN CHAT FILTER ON THIS BOSS")
             if(itemChoose == "3"):
                 if (inventory["Killing Potion"] == 0):
                     print("Thy don't have enough killing potion!")
@@ -99,4 +97,6 @@ inventory = {
     "Killing Potion":0,
     "Walmart Shopping Bag":0
 }
-Bossfight(100, "MeroDach", 143, 9, 28, 0, 17, 29, 0, 10, 10, 10, "Thy are stupid", "He does high damage", inventory)
+
+if __name__ == "__main__":
+    Bossfight(100, "MeroDach", 143, 9, 28, 0, 17, 29, 0, 10, 10, 10, "Thy are stupid", "He does high damage", inventory)
